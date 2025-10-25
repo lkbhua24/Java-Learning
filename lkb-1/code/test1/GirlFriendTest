@@ -1,0 +1,20 @@
+package com.lkbhua.test1;
+
+public class GirlFriendTest {
+    public static void main(String[] args) {
+        // 创建女朋友对象
+        GirlFriend gf = new GirlFriend();
+        gf.setAge(18);
+        gf.setName("Lisa");
+        gf.setHeight(1.68);
+;
+
+        System.out.println(gf.getAge());
+        System.out.println(gf.getName());
+        System.out.println(gf.getHeight());
+        System.out.println("---------");
+
+        gf.sleep();
+        gf.eat();
+    }
+}
