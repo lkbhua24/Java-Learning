@@ -1,0 +1,51 @@
+package com.lkbhua.Test1;
+
+import java.util.Random;
+
+public class Role {
+    private String name;
+    private int blood;
+
+    public Role() {
+    }
+
+    public Role(String name, int blood) {
+        this.name = name;
+        this.blood = blood;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+    public String getName() {
+        return name;
+    }
+    public void setBlood(int blood) {
+        this.blood = blood;
+    }
+    public int getBlood() {
+        return blood;
+    }
+
+    // 定义一个方法用于攻击敌人
+    // 思考：谁攻击谁？
+    //     方法的调用者去攻击参数r1.攻击（r2）
+    public void attack(Role role) {
+        // 计算造成的伤害（1-20）点血量
+        Random r = new Random();
+        int hurt = r.nextInt(20) + 1;
+
+        // 剩余血量
+        int remainBoold = role.getBlood() - hurt;
+        if(remainBoold < 0) {
+            remainBoold = 0;
+        }
+        role.setBlood(remainBoold);
+
+
+        // this表示方法的调用者
+        System.out.println(this.name + "攻击了" + role.name+
+                "造成了"+hurt+"点伤害"+"还剩下"+remainBoold+"点血量");
+
+    }
+}
