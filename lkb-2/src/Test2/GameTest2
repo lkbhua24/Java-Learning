@@ -1,0 +1,37 @@
+package com.lkbhua.Test2;
+
+import com.lkbhua.Test1.Role;
+
+public class GameTest2 {
+    public static void main(String[] args) {
+        // 1.创建角色
+        Role2 r1 = new Role2("莱克瓦", 100, '男', "");
+        Role2 r2 = new Role2("曾小琼", 100, '女', "");
+
+        // 2.展示一下角色的信息
+        r1.showRole();
+        r2.showRole();
+
+
+        // 3.游戏逻辑
+        while(true){
+            // r1开始攻击r2
+            r1.attack(r2);
+            // 判断r2的血量
+            if(r2.getBlood() == 0){
+                System.out.println(r1.getName() + " K.O " + r2.getName());
+                break;
+            }
+
+            // r2开始攻击r1
+            r2.attack(r1);
+            // 判断r1的血量
+            if(r1.getBlood() == 0){
+                System.out.println(r2.getName() + " K.O " + r1.getName());
+                break;
+            }
+
+
+        }
+    }
+}
