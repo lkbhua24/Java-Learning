@@ -1,0 +1,185 @@
+package com.lkbhua.Test2;
+
+import java.util.Random;
+import java.util.Scanner;
+
+private class Role2{
+    private String name;
+    private int blood;
+    private char gender;
+    private String face;
+
+  
+    // 长相
+    String[] boyface = {"风流俊雅","气宇轩昂","相貌英俊","五官端正","相貌平平","一塌糊涂","面目狰狞"};
+    String[] girlface = {"美奂绝伦","沉鱼落雁","婷婷玉立","身材娇好","相貌平平","一塌糊涂","面目狰狞"};
+
+    // 攻击描述
+    String[] attackDesc = {
+            "%s使出了一招【背心钉】，转到对方的身后，一掌向%s背心的灵台穴拍去",
+            "%s使出了一招【游空探爪】，飞起身形半空中变掌为抓镜向%s",
+            "%s大喝一声，身形下伏，一招【霹雷坠地】，摔向%s双腿",
+            "%s运气于掌，一瞬间掌心变得血红，一式【掌心雷】，推向%s",
+            "%s阴手翻起阳手跟进，一招【雷霆半月斩】，结结实实的锤动%s",
+            "%s上步枪身，招中套招，一招【顶娃娃】，连环功向%s",
+    };
+  
+    // 受伤描述
+    String[] injured_desc={
+            "结果%s退了半步，毫发无损",
+            "结果给%s造成一处愈伤",
+            "结果一击命中，%s痛得弯下腰",
+            "结果%s痛苦地闷声不语，显然受了点内伤",
+            "结果%s摇摇晃晃，一跤摔倒在地",
+            "结果%s脸色一下变得惨白，还退了好几布",
+            "结果[轰]的一声，%s口中鲜血狂喷而出",
+            "结果%s一声惨叫，像淤泥坍塌下去"
+    };
+
+    public Role2() {
+    }
+
+    public Role2(String name, int blood, char gender,String face) {
+        this.name = name;
+        this.blood = blood;
+        this.gender = gender;
+        // 直接调用setface
+        setFace(gender);
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+    public String getName() {
+        return name;
+    }
+    public void setBlood(int blood) {
+        this.blood = blood;
+    }
+    public int getBlood() {
+        return blood;
+    }
+    public void setGender(char gender) {
+        this.gender = gender;
+    }
+    public char getGender() {
+        return gender;
+    }
+   public void setFace(char gender) {
+        System.out.println("请输入你想随机长相（1）还说选择长相（2）：");
+        Scanner sc = new Scanner(System.in);
+        int chocie = sc.nextInt();
+        if(chocie == 1){
+            Random r = new Random();
+            // 长相是随机的
+            if(gender == '男'){
+                // 从boyface中随机获取
+                int index = r.nextInt(boyface.length);
+                this.face = boyface[index];
+            }
+            else if(gender == '女'){
+                // 从girlface中随机获取
+                int index = r.nextInt(girlface.length);
+                this.face = girlface[index];
+            }else{
+                System.out.println("性别输入错误");
+            }
+        }
+        else if(chocie == 2){
+            // 长相自己选择
+            if(gender == '男'){
+                for(int i = 0; i < boyface.length; i++){
+                    System.out.println(i + ":" + boyface[i]);
+                }
+                System.out.println("请输入你的选择：");
+                int index = sc.nextInt();
+                this.face = boyface[index];
+            }
+            else if(gender == '女'){
+                for(int i = 0; i < girlface.length; i++){
+                    System.out.println(i + ":" + girlface[i]);
+                }
+                System.out.println("请输入你的选择：");
+                int index = sc.nextInt();
+                this.face = girlface[index];
+            }
+
+        }
+
+
+
+
+    }
+    public String getFace() {
+        return face;
+    }
+  
+    // 定义一个方法用于攻击敌人
+    // 思考：谁攻击谁？
+    //     方法的调用者去攻击参数r1.攻击（r2）
+    public void attack(Role2 role) {
+        Random r = new Random();
+        int index = r.nextInt(attackDesc.length);
+        String KungFu = attackDesc[index];
+
+        // 输出一个攻击的效果
+        System.out.printf(KungFu,this.getName(),role.getName());
+        // 攻击完之后换行
+        System.out.println();
+
+        // 计算造成的伤害（1-20）点血量
+        int hurt = r.nextInt(20) + 1;
+
+        // 剩余血量
+        int remainBoold = role.getBlood() - hurt;
+        if (remainBoold < 0) {
+            remainBoold = 0;
+        }
+        role.setBlood(remainBoold);
+
+
+        // 受伤的描述（越来越严重）
+        // 如果说剩余血量小于10，那么就显示一个更严重的描述
+        if(remainBoold >90){
+            System.out.printf(injured_desc[0],role.getName());
+        }else if(remainBoold>80&&remainBoold<=90){
+            System.out.printf(injured_desc[1],role.getName());
+        }else if (remainBoold>70&&remainBoold<=80){
+            System.out.printf(injured_desc[2],role.getName());
+        }else if (remainBoold>60&&remainBoold<=70){
+            System.out.printf(injured_desc[3],role.getName());
+        }else if (remainBoold>40&&remainBoold<=60){
+            System.out.printf(injured_desc[4],role.getName());
+        }else if(remainBoold>20&&remainBoold<=40){
+            System.out.printf(injured_desc[5],role.getName());
+        }
+        else if (remainBoold>10&&remainBoold<=20){
+            System.out.printf(injured_desc[6],role.getName());
+        }
+        else{
+            System.out.printf(injured_desc[7],role.getName());
+        }
+        // 换行
+        System.out.println();
+
+
+        // this表示方法的调用者
+        System.out.println(this.name + "攻击" + role.name + "造成" + hurt + "点伤害，" + role.name + "剩余" + remainBoold + "点血量");
+    }
+
+
+
+
+    // 展示角色的信息
+    public void showRole() {
+        System.out.println("角色信息："+getName());
+        System.out.println("性别："+getGender());
+        System.out.println("年龄："+getFace());
+        System.out.println("血量："+getBlood());
+        System.out.println("------------------");
+    }
+
+}
+
+  
+}
