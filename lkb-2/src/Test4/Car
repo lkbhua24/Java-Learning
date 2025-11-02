@@ -1,0 +1,35 @@
+package com.lkbhua.Test4;
+
+import java.awt.*;
+
+public class Car {
+    private String brand;
+    private int price;
+    private String Color;
+
+    public Car() {}
+    public Car(String brand, int price, String Color) {
+        this.brand = brand;
+        this.price = price;
+        this.Color = Color;
+    }
+    public void setBrand(String brand) {
+        this.brand = brand;
+    }
+    public String getBrand() {
+        return brand;
+    }
+    public void setPrice(int price) {
+        this.price = price;
+    }
+    public int getPrice() {
+        return price;
+    }
+    public void setColor(String Color) {
+        this.Color = Color;
+    }
+    public String getColor() {
+        return Color;
+    }
+
+}
