@@ -1,0 +1,41 @@
+package com.lkbhua.Test4;
+
+import java.util.Scanner;
+
+public class test01 {
+    public static void main(String[] args) {
+        // 键盘录入：
+        // 键盘录入的第一条体系
+        // nextInt()：表示可以接受一个整数
+        // next()：表示可以接受一个字符串
+        // nextDouble()：表示可以接受一个小数
+        // 特点：以上的键盘录入遇见空格、制表符\t、回车都会结束录入，这些符号后面的数据就不会被接受了
+
+
+        Scanner sc = new Scanner(System.in);
+        System.out.println("请输入第一行数据：");
+        int num1 = sc.nextInt(); // 123 123
+        System.out.println(num1); // 123
+        System.out.println("请输入第二行数据：");
+        int num2 = sc.nextInt(); // 123把剩下的数据进行的输出
+        System.out.println(num2);
+
+
+        // 第二条体系：
+        // nextLine()：表示可以接受一行字符串
+        // 特点：可以接受一个空格、制表符\t、遇见回车才停止接受数据
+
+        Scanner sc2 = new Scanner(System.in);
+        System.out.println("请输入第一行数据：");
+        String line = sc2.nextLine();
+        System.out.println(line);
+        System.out.println("请输入第二行数据：");
+        String line2 = sc2.nextLine();
+        System.out.println(line2);
+
+
+        // 注意：键盘录入两套体系是不能昏庸的
+
+
+    }
+}
