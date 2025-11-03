@@ -1,0 +1,37 @@
+package com.lkbhua.Test5;
+
+public class PhoneTest {
+
+    public static void main(String[] args) {
+        // 1、创建一个数组
+        Phone[] arr = new Phone[3];
+
+        // 2、创建手机的对象
+        Phone phone1 = new Phone("iphone", 8888, "黑色"   );
+        Phone phone2 = new Phone("华为", 6666, "蓝色"   );
+        Phone phone3 = new Phone("小米", 3333, "白色"   );
+
+        // 3、将手机对象，保存到数组中
+        arr[0] = phone1;
+        arr[1] = phone2;
+        arr[2] = phone3;
+
+        // 4、遍历数组，并输出手机信息
+        for (int i = 0; i < arr.length; i++) {
+            Phone p = arr[i];
+            System.out.println(p.getBrand() + ":" + p.getPrice() + ":" + p.getColor());
+        }
+        System.out.println("------------------------------------------------");
+
+        // 5、获取手机的平均价格
+        int sum = 0;
+        for (int i = 0; i < arr.length; i++) {
+            Phone p = arr[i];
+            sum = sum + p.getPrice();
+        }
+
+        int avg = sum / arr.length;
+        System.out.println("平均价格：" + avg);
+
+    }
+}
