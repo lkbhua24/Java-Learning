@@ -1,0 +1,48 @@
+package com.lkbhua.Test6;
+
+public class GirlsTest {
+    public static void main(String[] args) {
+        // 1、定义一个数组
+        Girls[] arr = new Girls[4];
+
+        // 2、创建对象
+        Girls g1 = new Girls("张三", 18, 170, 1);
+        Girls g2 = new Girls("李四", 19, 160, 2);
+        Girls g3 = new Girls("王五", 20, 180, 3);
+        Girls g4 = new Girls("赵六", 21, 190, 4);
+
+        // 3、将创建的对象保存到数组中
+        arr[0] = g1;
+        arr[1] = g2;
+        arr[2] = g3;
+        arr[3] = g4;
+
+        // 4、遍历数组，并输出对象中的数据
+        for (int i = 0; i < arr.length; i++) {
+            Girls g = arr[i];
+            System.out.println(arr[i].getName() + ":" + arr[i].getAge() + ":" + arr[i].getHeight() + ":" + arr[i].getHobby());
+        }
+        System.out.println("------------------------------------------------");
+
+        // 5、获取数组中元素的平均年龄
+        int sum = 0;
+        for (int i = 0; i < arr.length; i++) {
+            Girls g = arr[i];
+            sum = sum + g.getAge();
+        }
+        int avg = sum / arr.length;
+        System.out.println("平均年龄为：" + avg);
+        System.out.println("------------------------------------------------");
+
+        // 6、统计有几个年龄比平均年龄小
+        int count = 0;
+        for (int i = 0; i < arr.length; i++) {
+            Girls g = arr[i];
+            if (g.getAge() < avg) {
+                count++;
+                System.out.println(g.getName()+":"+g.getAge()+":"+g.getHeight()+":"+g.getHobby());
+            }
+        }
+        System.out.println("年龄比平均年龄小的有：" + count + "个");
+    }
+}
