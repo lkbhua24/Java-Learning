@@ -1,0 +1,44 @@
+package com.lkbhua.Test6;
+
+public class Girls {
+    private String name;
+    private int age;
+    private int height;
+    private int hobby;
+
+    public Girls() {
+    }
+
+    public Girls(String name, int age, int height, int hobby) {
+        this.name = name;
+        this.age = age;
+        this.height = height;
+        this.hobby = hobby;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+    public String getName() {
+        return name;
+    }
+    public void setAge(int age) {
+        this.age = age;
+    }
+    public int getAge() {
+        return age;
+    }
+    public void setHeight(int height) {
+        this.height = height;
+    }
+    public int getHeight() {
+        return height;
+    }
+    public void setHobby(int hobby) {
+        this.hobby = hobby;
+    }
+    public int getHobby() {
+        return hobby;
+    }
+
+}
