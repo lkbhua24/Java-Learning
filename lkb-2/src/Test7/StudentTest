@@ -1,0 +1,159 @@
+package com.lkbhua.Test7;
+
+public class StudentTest {
+    public static void main(String[] args) {
+        // 1、创建数组存储学生对象
+        Student[] students = new Student[3];
+
+        // 2、创建学生对象
+        Student s1 = new Student(202301, "lkbhua", 18);
+        Student s2 = new Student(202302, "zengxq", 18);
+        Student s3 = new Student(202303, "zhangs", 20);
+
+        // 3、将学生对象保存到数组中
+        students[0] = s1;
+        students[1] = s2;
+
+        // 需求1：再次添加一个学生，并在添加的时候，判断该学生学号是否已经存在
+        // 读题拆解法
+        Student s4 = new Student(202304, "James", 42);
+        // 遍历数组，判断学号是否重复
+        // 已存在——不用添加
+        // 不存在——添加
+        boolean flag = contains(students, s4.getId());
+        if(flag){
+            System.out.println("该学生已存在");
+        }
+        else{
+            // 添加
+            // 数组已经存满：只能创建一个新的数组，新数组长度=旧数组长度+1
+            // 数组没有存满：直接添加
+            int count = getLength( students);
+            if(count == students.length){
+                // 已经存满
+                // 创建一个新数组
+                Student[] newStudents = createNewArray(students);
+                newStudents[count] = s4;
+
+                // 需求2的①
+                show(newStudents);
+                System.out.println("数组的长度是：" + getLength(students));
+
+            }else{
+                // 数组没有存满
+                // {stu1，stu2，NULL}
+                // getLength获取到的是2，表述数组中有2个元素
+                // 同时意味着：如果下一次要添加数据，就是添加到2索引的位置
+                // 意味着我们就没有必要去计算这个索引了
+                students[count] = s4;
+                System.out.println("添加成功");
+                show(students);
+                System.out.println("数组的长度是：" + getLength(students));
+            }
+        }
+
+        // 需求2：添加完毕之后，遍历所有学生信息
+        // 也要分清楚两种情况：、
+        // ①新数组中的遍历，已满
+        // ②旧数组中的遍历，未满
+
+
+
+        /*  需求3：通过id删除学生信息
+            如果存在：删除成功
+            如果不存在：删除失败
+        * */
+        // 要找id在数组中的索引
+        int index = findId(students, 202304);
+        if(index != -1){
+            // 删除
+             // 创建一个新数组
+            Student[] newStudents = createNewArray(students);
+            // 删除
+            newStudents[index] = null;
+            // 遍历
+            show(newStudents);
+        }
+        else{
+            System.out.println("当前id不存储，删除失败");
+        }
+
+        /*  需求5：查询id学生，若存在年龄+1
+        * */
+        int index2 = findId(students, 202302);
+        if(index2 != -1){
+            students[index2].setAge(students[index2].getAge() + 1);
+            System.out.println("修改成功");
+            show(students);
+        } else{
+            System.out.println("当前id不存在，修改失败");
+        }
+    }
+
+    // 找id的方法
+    public static int findId(Student[] students, int id){
+        for (int i = 0; i < students.length; i++) {
+            // 依次获取到数组中的每一个学生对象
+            Student s = students[i];
+            if(s != null){
+                if(s.getId() == id){
+                    return i;
+                }
+            }
+        }
+        // 循环结束，没有找到
+        return -1;
+    }
+
+    // 定义一个方法遍历数组
+    public static void show(Student[] students){
+        for (int i = 0; i < students.length; i++) {
+            if(students[i] != null){
+                System.out.println(students[i].getId() + " " + students[i].getName() + " " + students[i].getAge());
+            }
+        }
+    }
+
+
+    // 创建新数组方法
+    public static Student[] createNewArray(Student[] students){
+        Student[] newStudents = new Student[students.length + 1];
+        // 拷贝数据
+        for (int i = 0; i < students.length; i++) {
+            newStudents[i] = students[i];
+        }
+        return newStudents;
+    }
+
+
+    // 定义一个方法判断数组中有几个元素
+    public static int getLength(Student [] students){
+        // 定义一个计数器
+        int length = 0;
+        for (int i = 0; i < students.length; i++) {
+            if(students[i] != null){
+                length++;
+            }
+        }
+        System.out.println("数组的长度是：" + length);
+        return length;
+    }
+
+
+    // 判断数组中是否包含某个学号
+    public static boolean contains(Student [] students, int id){
+        // 遍历数组
+        for(int i = 0; i < students.length; i++){
+            // 依次获取到数组里面的每一个学生对象
+            Student s = students[i];
+            if(s != null){
+                // 跳出循环
+                if(s.getId() == id){
+                    return true;
+                }
+            }
+        }
+        // 循环结束，没有找到
+        return false;
+    }
+}
