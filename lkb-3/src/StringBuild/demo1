@@ -1,0 +1,34 @@
+package com.lkbhua.StringBuilder;
+
+public class demo1 {
+    public static void main(String[] args) {
+        /*  StringBuilder构造和使用
+         * */
+        // 1、创建StringBuilder对象
+        StringBuilder sb = new StringBuilder("abc");
+
+        // 2、添加元素
+        sb.append("def");
+        sb.append(123);
+        sb.append(true);
+        System.out.println(sb);
+
+        // 2、反转元素
+        // 注意：在容器内部就发生的反转
+        sb.reverse();
+
+        // 3、获取长度
+        System.out.println(sb.length());
+
+        // 4、变回字符串
+        // 变回字符串之后，就可以对str进行字符串相关的操作了
+        String str = sb.toString();
+        System.out.println(str);
+
+        // 打印
+        // 因为StringBuilder是Java已经写好的类
+        // Java在底层对他做了一些特殊处理
+        // 打印对象不是地址值而是属性值（内容）
+        System.out.println(sb);
+    }
+}
