@@ -1,0 +1,33 @@
+package com.lkbhua.StringBuilder;
+
+import java.util.Scanner;
+
+public class demo2 {
+    public static void main(String[] args) {
+        /*  StringBuilder——链式编程
+            当我们在调用一个方法的时候，不需要用变量接受它的结果，可以继续使用其他方法 ，
+            这种情况我们称这种编程方式为链式编程
+         * */
+        /*
+                String s = getString();
+                以前是通过定一个变量接受这个返回值，然后在使用其他的方法对其进行其他的操作
+        * */
+        // 现在懒得定义变量，直接使用方法返回值，然后使用其他方法对返回值进行操作
+        getString().subSequence(0, 3);
+        // 返回的是一个字符串，直接调用截取的方法
+
+        getString().length();
+        // 获取字符串的长度
+
+        // 这就是链式编程
+        // 那么通过了链式编程的思想，上次的代码就可以变成
+        StringBuilder sb = new StringBuilder();
+        sb.append("aaa").append("bbb").append("ccc").append("ddd");
+    }
+    public static String getString(){
+        System.out.println("请您输入一个字符串: ");
+        Scanner sc = new Scanner(System.in);
+        String str = sc.next();
+        return str;
+    }
+}
