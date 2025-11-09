@@ -1,0 +1,33 @@
+package com.lkbhua.StringBuilder;
+
+import java.util.Scanner;
+
+public class test01 {
+    public static void main(String[] args) {
+        /*  判断一个字符串是否为对称字符串
+         *  如123321 true
+         *   1233211 false
+        * */
+        // 1、键盘录入一个字符串
+        Scanner sc = new Scanner(System.in);
+        System.out.println("请输入一个字符串：");
+        String str = sc.next();
+
+        // 2、将字符串反转
+        /*
+        StringBuilder sb = new StringBuilder(str);
+        sb.append( str);
+        sb.reverse();
+        System.out.println(sb);
+        String str2 = sb.toString();
+        */
+        String str2 = new StringBuilder().append( str).reverse().toString();
+
+        // 3、判断是否相等
+        if(str.equals(str2)){
+            System.out.println("对称字符串");
+        }else{
+            System.out.println("不对称字符串");
+        }
+    }
+}
