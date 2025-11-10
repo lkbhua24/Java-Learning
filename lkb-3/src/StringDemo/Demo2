@@ -1,0 +1,28 @@
+package com.lkbhua.stringdemo;
+
+import java.util.Scanner;
+
+public class StringDemo2 {
+    public static void main(String[] args){
+        // 1、创建两个字符串对象
+        String s1 = new String("hello");
+        String s2 = "Hello";
+
+        // 2、==号比较
+        // 基本数据类型：比较的是数据值
+        // 引用数据类型：比较的是对象的地址值
+        System.out.println(s1 == s2);
+
+        // 3、比较字符串对象中的内容是否相等
+        boolean b = s1.equals(s2);
+        System.out.println(b);
+
+
+        // 4、比较字符串对象中的内容是否相等，忽略大小写
+        // 注意：这里的中文1、一是区分的
+        //      只有当是英文状态下的a、A才不区分
+        boolean b2 = s1.equalsIgnoreCase(s2);
+        System.out.println(b2);
+
+    }
+}
