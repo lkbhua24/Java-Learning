@@ -1,0 +1,29 @@
+package com.lkbhua.stringdemo;
+
+public class StringDemo1 {
+    public static void main(String[] args) {
+        // 1、使用直接赋值的方式
+        String s1 = "hello";
+
+        // 2、使用new关键字
+        // 空参构造：可以获取一个空白的字符串对象
+        String s3 = new String();
+
+        // 传递一个字符串，根据传递的字符串内容再创建一个新的字符串
+        String s4 = new String("hello");
+        System.out.println(s4);
+
+        // 传递一个字符数组
+        // 使用场景：我要修改字符串的内容就会应用这种方式
+        char[] chars = {'h', 'e', 'l', 'l', 'o'};
+        String s5 = new String(chars);
+        System.out.println(s5);
+
+        // 传递一个字节数组，创建一个字符串
+        // byte
+        // 应用场景：在网络中传输的都是字节信息，此时就需要用到该字节数组构造了
+        byte[] bytes = {97, 98, 99, 100, 101};
+        String s6 = new String(bytes);
+        System.out.println(s6); // 先找到相应数字的ASCII表 abcd
+    }
+}
