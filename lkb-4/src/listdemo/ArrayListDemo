@@ -1,0 +1,55 @@
+package com.lkbhua.listdemo;
+
+import java.util.ArrayList;
+
+public class ArrayListDemo1 {
+    public static void main(String[] args) {
+        // 1、创建集合的对象
+        // 泛型：限定集合中元素的数据类型
+        // 创建集合对象，使用泛型，此时创建集合对象时，指定了集合中元素的数据类型
+        // String为引用数据类型：意味着只能存储String类型的数据
+        // JDK7之前的写法：
+        ArrayList<String> list = new ArrayList<String>();
+
+        // JDK7之后：
+        ArrayList<String> list2 = new ArrayList<>();
+        // ArrayList是Java中写好了一个类
+        // 打印对象不是地址值，而是集合中存储的数据内容
+        // 在展示的时候会拿[]把所有的数据进行包裹
+        System.out.println(list);  // []
+
+        // 2、添加元素
+        // 注意：不管什么添加什么都会返回true，添加成功
+        //      所以我们一般不管这个返回值
+        list.add("aaa");
+        list.add("bbb");
+        list.add("ccc");
+        list.add("ddd");
+        System.out.println(list);
+
+        // 3、删除元素
+        list.remove("Hello");
+        // 这会把被删除的元素返回给调用者
+        String str = list.remove(0);
+        System.out.println(str);
+
+        // 4、修改元素
+        // 覆盖原来的元素，并且把旧元素返回给调用者
+        list.set(1,"ddd");
+        System.out.println(list);
+
+        // 5、获取元素
+        String s = list.get(1);
+        System.out.println(s);
+
+        // 6、获取集合的长度
+        int size = list.size();
+        System.out.println(size);
+
+        // 7、遍历集合
+        for (int i = 0; i < list.size(); i++) {
+            String s1 = list.get(i);
+            System.out.println(s1);
+        }
+    }
+}
