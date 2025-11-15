@@ -1,0 +1,71 @@
+package com.lkbhua.Test;
+
+import java.util.ArrayList;
+
+public class ArrayListTest06 {
+    public static void main(String[] args) {
+        /*添加手机对象并按要求返回数据*/
+
+        // 1、创建ArrayList
+        ArrayList<Phone> list = new ArrayList<>();
+
+        // 2、创建手机对象
+        Phone p1 = new Phone("Apple17", 8888);
+        Phone p2 = new Phone("HuaweiMate80", 6666);
+        Phone p3 = new Phone("Xiaomi17pro", 5555);
+        Phone p4 = new Phone("Vivos19", 2444);
+        Phone p5 = new Phone("OppoReno13", 2033);
+        Phone p6 = new Phone("OppoA5", 2222);
+        Phone p7 = new Phone("OnePlus", 1111);
+
+        // 3、添加手机对象
+        list.add(p1);
+        list.add(p2);
+        list.add(p3);
+        list.add(p4);
+        list.add(p5);
+        list.add(p6);
+        list.add(p7);
+
+        // 4、调用方法
+        printArrayList(list);
+
+        // 5、接受
+        ArrayList<Phone> phoneInfoList = getPhone(list);
+
+        // 遍历
+        for(int i = 0; i < phoneInfoList.size(); i++){
+            Phone p = phoneInfoList.get(i);
+            System.out.println(p.getBrand() + "---" + p.getPrice());
+        }
+    }
+
+    // case1：打印的方法
+    public static void printArrayList(ArrayList<Phone> list){
+        for(int i = 0; i < list.size(); i++){
+            Phone p = list.get(i);
+            double price = p.getPrice();
+            if(price < 3000){
+                System.out.println(p.getBrand() + "---" + p.getPrice());
+            }
+        }
+    }
+
+
+    // case2：返回手机对象
+    // 技巧：
+    // 如果以后要返回多个数据，可以把这些数据放到一个容器当中，再把容器返回
+    // 可以是集合、数组
+    public static ArrayList<Phone> getPhone(ArrayList<Phone> list){
+        // 定义一个集合用以存储并返回低于3000的手机对象
+        ArrayList<Phone> resultList = new ArrayList<>();
+        for(int i = 0; i < list.size(); i++){
+            Phone p = list.get(i);
+            double price = p.getPrice();
+            if(price < 3000){
+                resultList.add(p);
+            }
+        }
+        return resultList;
+    }
+}
