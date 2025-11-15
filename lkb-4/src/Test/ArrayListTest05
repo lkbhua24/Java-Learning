@@ -1,0 +1,56 @@
+package com.lkbhua.Test;
+
+import java.util.ArrayList;
+
+public class ArrayListTest05 {
+    public static void main(String[] args) {
+        /*添加对象并判断是否存在*/
+
+        // 1、创建ArrayList集合
+        ArrayList<User> list = new ArrayList<>();
+
+        // 2、创建三个用户对象
+        User u1 = new User("张三", 18, "123456");
+        User u2 = new User("曾琼", 22, "122136");
+        User u3 = new User("王五", 19, "12qw56");
+
+        // 3、添加用户对象
+        list.add(u1);
+        list.add(u2);
+        list.add(u3);
+
+        // 4、调用方法查询id
+        boolean b = contains(list, "张三");
+        System.out.println(b);
+    }
+
+    // 查询方法
+    public static boolean contains(ArrayList<User>list, String id){
+        for(int i = 0; i < list.size(); i++){
+            // 利用list.get(i)获取集合中的元素
+            // .getName()获取用户名
+            // .equals()判断用户名是否相同
+            // list.get(i).getName().equals(id);
+            User u = list.get(i);
+            String uid = u.getName();
+            if(uid.equals(id)){
+                return true;
+            }
+        }
+        // 循环结束，没有找到
+        return false;
+    }
+
+    // 查询返回索引
+    public static int getindex(ArrayList<User>list, String id){
+        for(int i = 0; i < list.size(); i++){
+            User u = list.get(i);
+            String uid = u.getName();
+            if(uid.equals(id)){
+                return i;
+            }
+        }
+        // 循环结束，没有找到
+        return -1;
+    }
+}
