@@ -1,0 +1,19 @@
+package com.lkbhua.AbstractDemo.demo1;
+/* 定义一个学生类继承父类Person 
+   父类是抽象类，子类若想使用其抽象方法，必须重写！ */
+
+public class Student extends Person{
+
+    public Student() {}
+
+    public Student(String name, int age) {
+        super(name, age);
+    }
+
+    @Override
+    public void work() {
+        System.out.println("Student is learning");
+    }
+
+
+}
