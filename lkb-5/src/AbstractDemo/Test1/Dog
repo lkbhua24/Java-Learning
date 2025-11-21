@@ -1,0 +1,17 @@
+package com.lkbhua.AbstractDemo.Test1;
+
+/* 创建一个Dog类继承抽象类Animal，重写该抽象类的抽象方法*/
+
+public class Dog extends Animal{
+
+    public Dog() {}
+
+    public Dog(String name, int age) {
+        super(name, age);
+    }
+    @Override
+    public void eat() {
+        System.out.println("Dog is eating bone");
+    }
+}
+
