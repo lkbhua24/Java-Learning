@@ -1,0 +1,37 @@
+package com.lkbhua.Inheritance;
+
+public class Animals {
+
+    // 权限修饰符
+    // private：子类就无法访问了
+    // 私有：只能在本类中进行访问
+
+    // 注意事项：父类中私有的成员变量和成员方法，子类无法访问
+
+    private String name;
+
+    public Animals() {}
+
+    public Animals(String name) {
+        this.name = name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+    public String getName() {
+        return name;
+    }
+
+    public void eat() {
+        System.out.println("吃饭");
+    }
+    public void drink() {
+        System.out.println("喝水");
+    }
+
+    public void show() {
+        System.out.println("我是" + name);
+    }
+
+}
