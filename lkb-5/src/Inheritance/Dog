@@ -1,0 +1,8 @@
+package com.lkbhua.Inheritance;
+
+public class Dog extends Animals {
+    public void watch(){
+        System.out.println("看家");
+    }
+
+}
