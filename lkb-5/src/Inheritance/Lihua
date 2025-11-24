@@ -1,0 +1,5 @@
+age com.lkbhua.Inheritance;
+
+public class Lihua extends Cat{
+
+}
