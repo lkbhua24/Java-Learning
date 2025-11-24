@@ -1,0 +1,5 @@
+package com.lkbhua.Inheritance;
+
+public class Ragdoll extends Cat{
+
+}
