@@ -1,0 +1,19 @@
+package com.lkbhua.Inheritance;
+
+public class Test {
+    public static void main(String[] args) {
+        // 1、创建对象并调用方法
+        Ragdoll rd = new Ragdoll();
+        rd.catchMouse();
+        rd.eat();
+        rd.show();
+
+        Husky hs = new Husky();
+        hs.setName("哈士奇");
+        hs.show();
+        hs.watch();
+        hs.eat();
+        hs.drink();
+        System.out.println(hs.getName());
+    }
+}
