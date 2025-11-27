@@ -1,0 +1,18 @@
+package com.lkbhua.InnerClassDemo.demo1;
+
+public class Test {
+    public static void main(String[] args) {
+        Car car = new Car();
+        car.carName = "BMW";
+        car.carAge = 3;
+        car.carColor = "blue";
+
+        car.show();
+
+        Car.Engine engine = car.new Engine();
+        engine.engineName = "BWM-E";
+        engine.engineAge = "2019";
+        engine.show();
+
+    }
+}
