@@ -1,0 +1,24 @@
+ package com.lkbhua.InnerClassDemo.demo1;
+
+public class Car {
+    String carName;
+    int carAge;
+    String carColor;
+
+    // 外部类不能直接访问内部类的成员变量，必须要创建对象
+    public void show(){
+        System.out.println("carName:"+carName);
+        Engine engine = new Engine();
+        System.out.println("engineName:"+engine.engineName);
+    }
+
+    class Engine{
+        String engineName;
+        String engineAge;
+
+        // 内部类可以使用外部类的成员变量，包括私有
+        public void show(){
+            System.out.println(" carName:"+carName);
+        }
+    }
+}
