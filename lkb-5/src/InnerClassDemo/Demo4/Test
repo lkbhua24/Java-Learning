@@ -1,0 +1,68 @@
+package com.lkbhua.InnerClassDemo.demo4;
+
+public class Test {
+    /*  匿名内部类
+        new 类名或者接口名(0{
+            重写方法
+        }
+    */
+    public static void main(String[] args) {
+        new Swim(){
+            @Override
+            public void swim() {
+                System.out.println(" swimming");
+            }
+        };
+
+        new Animal(){
+            @Override
+            public void eat() {
+                System.out.println(" eating");
+            }
+        };
+
+        // 这里直接运行代码：会发生什么结果都没有，因为上面的操作也就是创建了一个对象而已
+        // 有没有调用方法，也没有调用变量
+
+        // 应用场景
+        // 在测试类中调用下面method方法
+        // 以前：
+        // 1、要自己写一个子类去继承Animal类
+        // 2、创建子类的对象，传递给method方法
+        // 缺点：如果我们只需要使用一个这个方法或者类，单独创建一个类就太麻烦了
+
+        // 现在：
+        method(
+            new Animal(){
+                @Override
+                public void eat(){
+                System.out.println("Dog is eating");
+                }
+            }
+        );
+
+
+        Swim s = new Swim(){
+            @Override
+            public void swim() {
+                System.out.println("Dog is swimming");
+            }
+        };
+
+        // 编译看左边，运行看右边
+        s.swim();
+
+        // 还可以直接.调用方法
+        new Swim(){
+            @Override
+            public void swim() {
+                System.out.println("Dog is swimming");
+            }
+        }.swim();
+
+
+    }
+    public static void method(Animal a){// Animal a = 子类对象  多态嘛
+        a.eat(); // 编译看左边，运行看右边
+    }
+}
