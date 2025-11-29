@@ -1,0 +1,8 @@
+package com.lkbhua.InnerClassDemo.demo4;
+
+public class Dog extends  Animal{
+    @Override
+    public void eat() {
+        System.out.println("Dog is eating");
+    }
+}
