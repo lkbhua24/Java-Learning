@@ -1,0 +1,19 @@
+package com.lkbhua.interfaceDemo.demo1;
+
+public class Dog extends Animal implements Swim{
+    public Dog() {}
+
+    public Dog(String name, int age) {
+        super(name, age);
+    }
+
+    @Override
+    public void eat() {
+        System.out.println("Dog is eating bone");
+    }
+
+    @Override
+    public void swim() {
+        System.out.println("Dog is swimming");
+    }
+}
