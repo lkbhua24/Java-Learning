@@ -1,0 +1,5 @@
+package com.lkbhua.interfaceDemo.demo2;
+
+public interface English {
+    public abstract void speakEnglish();
+}
