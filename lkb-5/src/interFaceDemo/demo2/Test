@@ -1,0 +1,29 @@
+package com.lkbhua.interfaceDemo.demo2;
+
+public class Test {
+    public static void main(String[] args) {
+        // 创建对象
+        PingPangCoach pingPangCoach = new PingPangCoach();
+        pingPangCoach.setName("PingPangCoach");
+        pingPangCoach.setAge(18);
+        System.out.println("PingPangCoach" + pingPangCoach.getName());
+        System.out.println("PingPangCoach" + pingPangCoach.getAge());
+        pingPangCoach.teach();
+        pingPangCoach.speakEnglish();
+
+        PingPangSporter pingPangSporter = new PingPangSporter();
+        pingPangSporter.setName("PingPangSporter");
+        pingPangSporter.setAge(18);
+        System.out.println("PingPangSporter" + pingPangSporter.getName());
+        System.out.println("PingPangSporter" + pingPangSporter.getAge());
+        pingPangSporter.study();
+        pingPangSporter.speakEnglish();
+
+        BasketballCoach basketballCoach = new BasketballCoach();
+        basketballCoach.setName("Kobe");
+        basketballCoach.setAge(24);
+        System.out.println("BasketballCoach" + basketballCoach.getName());
+        System.out.println("BasketballCoach" + basketballCoach.getAge());
+        basketballCoach.teach();
+    }
+}
