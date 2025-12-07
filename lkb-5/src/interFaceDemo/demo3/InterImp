@@ -1,0 +1,24 @@
+package com.lkbhua.interfaceDemo.demo3;
+
+public class InterImp implements  Inter{
+
+
+    @Override
+    public void method() {
+        System.out.println("实现类重写的抽象方法");
+    }
+
+    // 注意：前面不能加default，会报错
+    //      默认方法不需要强制重写
+    @Override
+    public void show() {
+        System.out.println("实现类重写的默认方法");
+    }
+
+    /* 注意1：静态方法不需要强制重写
+    @Override
+    public void show3() {
+        Inter.super.show2();
+    }
+    */
+}
