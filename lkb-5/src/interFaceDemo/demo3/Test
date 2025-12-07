@@ -1,0 +1,11 @@
+package com.lkbhua.interfaceDemo.demo3;
+
+public class Test {
+    public static void main(String[] args) {
+
+        // 创建实现类的对象
+        InterImp interImp = new InterImp();
+        interImp.show();
+        interImp.method();
+    }
+}
