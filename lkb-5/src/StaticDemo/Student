@@ -1,0 +1,45 @@
+package com.lkbhua.StaticDemo;
+
+public class Student {
+    // 属性新增：；老师的姓名
+    // 一旦加上static，属性值就所有对象共享的
+    public static String teacherName;
+    private String name;
+    private int age;
+    private String gender;
+
+    public Student(){}
+
+    public Student(String name, int age, String gender) {
+        this.name = name;
+        this.age = age;
+        this.gender = gender;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+    public String getName() {
+        return name;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+    public int getAge() {
+        return age;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+    public String getGender() {
+        return gender;
+    }
+    public void show() {
+        System.out.println("姓名：" + name + "，年龄：" + age + "，性别：" + gender+",老师姓名："+teacherName);
+    }
+    public void learn(){
+        System.out.println("正在学习...");
+    }
+}
