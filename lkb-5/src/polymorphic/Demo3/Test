@@ -1,0 +1,72 @@
+package com.lkbhua.polymorphism.Demo3;
+
+import com.lkbhua.Inheritance.Dog;
+
+public class Test {
+    public static void main(String[] args) {
+        // 1、创建对象（利用多态）
+        Animal2 animal = new Dog2();
+        animal.eat();
+
+        // 多态的弊端：
+        // ①不能调用子类特有方法：
+        // 报错的原因？
+        // 当调用的时候，在编译的时候会检查父类中有没有这个方法，如果没有就会报错。
+        //    animal.lookhome();
+
+        // 解决方案：
+        // 把调用者animal变回子类类型就可以了
+        // 注意：不乱瞎转，如Dog转成Cat类型的
+        Dog2 d = (Dog2) animal;
+        d.lookhome();
+
+        // Java中有这样的关键字可以判断类型
+        /*
+        if(animal instanceof Dog){
+            Dog d1 = (Dog) animal;
+        }
+        if(animal instanceof Cat){
+            Cat c = (Cat) animal;
+        }
+        */
+
+        // JDK14之后：判断和强转可以合在一起写
+        /* 在后面增添一个变量名
+           先判断，后强转
+        if(animal instanceof Dog d){
+            Dog d1 = (Dog) animal;
+        }
+        if(animal instanceof Cat c){
+            Cat c = (Cat) animal;
+        }
+        */
+    }
+}
+
+class Animal2 {
+    public void eat() {
+        System.out.println("Animal is eating...");
+    }
+}
+
+class Dog2 extends Animal2 {
+    @Override
+    public void eat() {
+        System.out.println("Dog is eating...");
+    }
+
+    public void lookhome() {
+        System.out.println("Dog is looking home...");
+    }
+}
+
+class Cat2 extends Animal2 {
+    @Override
+    public void eat() {
+        System.out.println("Cat is eating...");
+    }
+
+    public void catchMouse() {
+        System.out.println("Cat is catching mouse...");
+    }
+}
