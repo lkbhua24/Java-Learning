@@ -1,0 +1,32 @@
+package com.lkbhua.StaticDemo;
+
+public class StudentTest {
+    public static void main(String[] args) {
+        // 1、创建一个学生对象
+        Student s1 = new Student();
+        s1.setName("张三");
+        s1.setAge(18);
+        s1.setGender("男");
+        // s1.teacherName = "王老师";
+        // 同时支持类名.属性名调用
+        Student.teacherName = "王老师";
+
+        s1.learn();
+        s1.show();  // “张三” ，18，男，王老师
+
+        // 2、创建第二个学生对象
+        Student s2 = new Student();
+        s2.setName("李四");
+        s2.setAge(19);
+        s2.setGender("女");
+
+        s2.learn();
+        s2.show(); // “李四” ，19，女，null
+
+        // 这里显然不合理，针对我们的开发场景来说，这俩个对象属于同一个班级，共享同一个老师。
+        // 解决办法：可以通过每一次创建对象的时候都赋值老师的值
+        //    缺点：每一次都要赋值，代码冗余
+        // 此时就可以使用静态成员变量了static
+
+    }
+}
