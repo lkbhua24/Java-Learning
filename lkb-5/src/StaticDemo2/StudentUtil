@@ -1,0 +1,21 @@
+package com.lkbhua.StaticDemo2;
+
+import java.util.ArrayList;
+
+public class StudentUtil {
+    private StudentUtil(){}
+
+    // 静态方法
+    public static int getMaxAge(ArrayList<Student> list) {
+        // 1、定义一个参照物
+        int maxAge = list.get(0).getAge();
+        // 注意i从1开始，从0开始等于和自己比较，没必要，可以省略这一次循环
+        for (int i = 1; i < list.size(); i++) {
+            Student s = list.get(i);
+            if(s.getAge() > maxAge){
+                maxAge = s.getAge();
+            }
+        }
+        return maxAge;
+    }
+}
