@@ -1,0 +1,16 @@
+package com.lkbhua.Test;
+
+public class test1 {
+    public static void main(String[] args) {
+        // 1、创建对象并赋值调用
+        Manager m = new Manager("莱克瓦", "1", 1000, 1000);
+        System.out.println(m.getName()+","+m.getId()+","+m.getSalary()+","+m.getBonus());
+        m.work();
+        m.eat();
+
+        Employee e = new Employee("莱克瓦", "1", 1000);
+        e.work();
+        e.eat();
+        System.out.println(e.getName()+","+e.getId()+","+e.getSalary());
+    }
+}
