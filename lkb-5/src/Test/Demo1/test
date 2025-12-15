@@ -1,0 +1,31 @@
+package com.lkbhua.Test.Demo1;
+
+import com.lkbhua.Inheritance.Cat;
+
+public class test {
+    public static void main(String[] args) {
+        /*
+        // 1、创建对象并调用方法
+        Person p = new Person("老王", 18);
+        Dog d = new Dog(2, "黄色");
+        p.keepPet(d, "bone");
+        System.out.println("-----------------");
+
+        Person p2 = new Person("lkbhua", 18 );
+        Car c = new Car(3, "蓝色");
+        p.keepPet(c, "mouse");
+
+        */
+
+        Person p = new Person("Zengxq", 19);
+        Dog d = new Dog(2, "yellow");
+        p.keepPet(d, "bone");
+
+        System.out.println("-----------------");
+
+        Person p2 = new Person("lkbhua", 20);
+        Car c = new Car(3, "blue");
+        p.keepPet(c, "mouse");
+
+    }
+}
