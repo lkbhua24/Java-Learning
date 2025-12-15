@@ -1,0 +1,68 @@
+package com.lkbhua.Test.Demo1;
+
+
+import com.lkbhua.Test.Demo1.Dog;
+import com.lkbhua.Test.Demo1.Animal;
+import com.lkbhua.Test.Demo1.Car;
+
+public class Person {
+    private String name;
+    private int age;
+
+    public Person(){}
+
+    public Person(String name, int age){
+        this.name = name;
+        this.age = age;
+    }
+
+    public void setAge(int age){
+        this.age = age;
+    }
+    public int getAge(){
+        return age;
+    }
+
+    public void setName(String name){
+        this.name = name;
+    }
+    public String getName(){
+        return name;
+    }
+
+    /*case1：
+    // 饲养狗
+    public void keepPet(Dog dog,String something){
+        System.out.println("年龄为"+age+"岁的"+name+"正在给"+dog.getColor()+"的"+dog.getAge()+"岁的"+"狗吃"+something);
+        dog.eat(something);
+    }
+
+    // 饲养猫
+    public void keepPet(Car car,String something){
+        System.out.println("年龄为"+age+"岁的"+name+"正在给"+car.getColor()+"的"+car.getAge()+"岁的"+"狗吃"+something);
+        car.eat(something);
+    }
+    */
+
+    /*case2: 方法的形参：可以写这些类的父类Animal，多态
+    public void keepPet(Animal animal,String something){
+        System.out.println("年龄为"+age+"岁的"+name+"正在给"+animal.getColor()+"的"+animal.getAge()+"岁的"+"狗吃"+something);
+        animal.eat(something);
+    }
+    */
+
+    // case3：加上判断，避免不能特定的对象调用
+    public void keepPet(Animal animal,String something){
+        if(animal instanceof Dog){
+            Dog dog = (Dog) animal;
+            System.out.println("年龄为"+age+"岁的"+name+"正在给"+dog.getColor()+"的"+dog.getAge()+"岁的"+"狗吃"+something);
+            dog.eat(something);
+        }else if(animal instanceof Car){
+            Car car = (Car) animal;
+            System.out.println("年龄为"+age+"岁的"+name+"正在给"+car.getColor()+"的"+car.getAge()+"岁的"+"秒吃"+something);
+            car.eat(something);
+        }else{
+            System.out.println("没有这种动物");
+        }
+    }
+}
