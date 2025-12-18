@@ -1,0 +1,15 @@
+package com.lkbhua.MyApi.BigDecimal;
+
+public class demo1 {
+    public static void main(String[] args) {
+        /*  由此可见，某些小数转换成二进制会有十分长的位数。
+        而float、doubt在底层占用的字节是有限的。
+        那么超出这个数据类型所占用的字节位数的只能舍弃，所以这就是造成有些小数不够精确的原因。*/
+        // 而Java提供的BigDecimal类就是帮助我们精确运算小数的类方法。
+        System.out.println(0.1 + 0.1);
+        System.out.println(0.126-0.1);
+        System.out.println(0.1*0.2);
+        System.out.println(0.1/0.2);
+
+    }
+}
