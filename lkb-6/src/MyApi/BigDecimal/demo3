@@ -1,0 +1,36 @@
+package com.lkbhua.MyApi.BigDecimal;
+
+import java.math.BigDecimal;
+
+public class demo3 {
+    public static void main(String[] args) {
+        /*常见的BigDecimal的成员方法*/
+        // 1、public BigDecimal add(BigDecimal val)
+        // 加法：
+        BigDecimal bd1 = new BigDecimal(10);
+        BigDecimal bd2 = new BigDecimal(3);
+        BigDecimal bd3 = bd1.add(bd2);
+        System.out.println(bd3);
+
+        // 2、public BigDecimal subtract(BigDecimal val)
+        // 减法：
+        BigDecimal bd4 = new BigDecimal(0.1);
+        BigDecimal bd5 = new BigDecimal(0.2);
+        BigDecimal bd6 = bd4.subtract(bd5);
+        System.out.println(bd6);
+        // 减法结果为负数时，结果会自动补0
+
+        // 3、public BigDecimal multiply(BigDecimal val)
+        // 乘法：
+        BigDecimal bd7 = new BigDecimal(0.1);
+        BigDecimal bd8 = new BigDecimal(0.2);
+        BigDecimal bd9 = bd7.multiply(bd8);
+        System.out.println(bd9);
+
+        // 4、public BigDecimal divide(BigDecimal val)
+        // 除法：
+        // 参数：1、除数 2、精度 3、舍入模式
+        BigDecimal bd10 = bd1.divide(bd2,3,BigDecimal.ROUND_HALF_UP);
+        System.out.println(bd10);
+    }
+}
