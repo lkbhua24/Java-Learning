@@ -1,0 +1,38 @@
+package com.lkbhua.MyApi.BigDecimal;
+
+import java.math.BigDecimal;
+import java.math.BigInteger;
+
+public class demo2 {
+    public static void main(String[] args) {
+        // 1、通过传递doubt类型的小数来创建对象
+        // 细节：不建议使用
+        // 这种方式创建的BigDecimal对象，会丢失精度
+        BigDecimal bd1 = new BigDecimal(0.01);
+        BigDecimal bd2 = new BigDecimal(0.09);
+        System.out.println(bd1);
+        System.out.println(bd2);
+        // 输出结果十分不精确
+        // 0.01000000000000000020816681711721685132943093776702880859375
+        // 0.0899999999999999966693309261245303787291049957275390625
+
+        // 2、通过传递字符串来创建对象
+        // 细节：
+        // 这种方式创建的BigDecimal对象，不会丢失精度
+        BigDecimal bd3 = new BigDecimal("0.01");
+        BigDecimal bd4 = new BigDecimal("0.09");
+        System.out.println(bd3);
+        System.out.println(bd4);
+        // 0.01
+        // 0.09
+
+        // 3、通过静态方法创建对象
+        // 细节：
+        // 1、如果要表示的数字不大，没有超过doubt的范围，建议使用此方式创建对象
+        // 2、如果要表示的数字超过doubt的范围，建议使用字符串创建对象
+        // 3、如果我们传递的是0 - 10 的整数数字，建议使用静态方法创建对象
+        //    会传递已经创建好的对象，不会去new新的对象
+        BigDecimal bd5 = BigDecimal.valueOf(0.01);
+        System.out.println(bd5);
+    }
+}
