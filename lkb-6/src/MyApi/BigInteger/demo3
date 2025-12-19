@@ -1,0 +1,16 @@
+package com.lkbhua.MyApi.BigInteger;
+
+import java.math.BigInteger;
+import java.util.Date;
+import java.util.Random;
+
+public class demo3 {
+    public static void main(String[] args) {
+        // 断点调试/debug模式运行代码
+        // 作用：查看程序是一步一步如何执行的
+        BigInteger bd = new BigInteger("1234567890123456789012345678901234567890");
+        System.out.println(bd);
+    }
+}
+
+
