@@ -1,0 +1,53 @@
+package com.lkbhua.MyApi.BigInteger;
+
+import java.math.BigInteger;
+import java.util.Random;
+
+public class demo1 {
+    public static void main(String[] args) {
+        // 1、获取一个随机的大整数
+        // public BigInteger(int num, Random rnd): 获取随机大整数，范围：[0, 2^num-1]
+        BigInteger bd1 = new BigInteger(4, new Random());
+        System.out.println(bd1); // 0-15
+        for(int i = 0; i < 10; i++){
+            BigInteger bd2 = new BigInteger(4, new Random());
+            System.out.println(bd2);
+        }
+
+        // 2、获取一个指定的大整数
+        // public BigInteger(String val): 获取指定字符串表示的大整数
+        // 切记：不能写小数、负数、字符
+        BigInteger bd3 = new BigInteger("123456789012345678901234567890");
+        System.out.println(bd3);
+
+        // 3、获取指定进制的大整数
+        // public BigInteger(byte[] val,int radix): 获取指定进制表示的大整数
+        // 细节：
+        // 1、字符串中的数字必须是整数
+        // 2、字符串中的数字必须要跟进制匹配
+        // 比如规定二进制后，那么""只能写0或者1，写其他的就报错。
+        BigInteger bd4 = new BigInteger("100", 10);
+        BigInteger bd5 = new BigInteger("100", 2);
+        System.out.println(bd4);
+
+        // 4、静态方法获取BigInteger的对象，内部有优化
+        // 跟2点的区别：
+        // 1、能表示的范围没有第二点的大，只能在long的取值范围之内。
+        // 2、在内部中对常用的数字进行了优化：-16-16
+        //    提前把-16-16先创建好BigInteger对象，如果多次获取不会创建新的。
+        BigInteger bd6 = BigInteger.valueOf(100);
+        System.out.println(bd5);
+
+        // 验证第二点
+        BigInteger bd7 = BigInteger.valueOf(16);
+        BigInteger bd8 = BigInteger.valueOf(16);
+        System.out.println(bd7 == bd8); // true
+
+        // 5、对象一旦创建，内部数据就不能发生改变
+        BigInteger bd9 = BigInteger.valueOf(1);
+        BigInteger bd10 = BigInteger.valueOf(2);
+        BigInteger result =  bd9.add(bd10);
+        System.out.println(result);
+        // 此时，结果虽然是3，但是bd9和bd10没有变，而是创建了一个新的对象，保存了结果。
+    }
+}
