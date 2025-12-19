@@ -1,0 +1,45 @@
+package com.lkbhua.MyApi.BigInteger;
+
+import java.math.BigInteger;
+
+public class demo2 {
+    public static void main(String[] args) {
+        /*BigInteger的常见成员方法：用以计算BIgInteger存储的数据计算。*/
+        // public BigInteger add(BigInteger val)
+        // 1、创建一个BigInteger对象
+        BigInteger bd1 = BigInteger.valueOf(10);
+        BigInteger bd2 = BigInteger.valueOf(5);
+        BigInteger bd3 = bd1.add(bd2);
+        System.out.println(bd3);
+
+        // public BigInteger[] divideAndRemainder(BigInteger val)
+        // 2、除法,获取商和余数
+        BigInteger[] arr = bd1.divideAndRemainder(bd2);
+        System.out.println(arr.length);
+        System.out.println(arr[0]); // 商
+        System.out.println(arr[1]); // 余数
+
+        // public boolean equals(Object obj)
+        // 3、判断两个对象是否相等
+        System.out.println(bd1.equals(bd2));
+
+        // public BigInteger pow(int exponent)
+        // 4、求幂
+        BigInteger bd4 = bd1.pow(2);
+        System.out.println(bd4);
+
+        // public BigInteger max/min(BigInteger val)
+        // 5、获取两个对象中的最大值/最小值
+        System.out.println(bd1.max(bd2));
+        System.out.println(bd1.min(bd2));
+
+        // public int intValue(BigInteger val)
+        // 6、获取int值
+        // 转换的值超过int范围，会抛出异常
+        // 相应的要变更成longValue()、doubleValue()
+        int a = bd1.intValue();
+        int b = bd2.intValue();
+        System.out.println(a + b);
+
+    }
+}
