@@ -1,0 +1,26 @@
+package com.lkbhua.MyApi.JDK7Time.Date;
+
+import java.util.Date;
+
+
+class DataDemo {
+        public static void main(String[] args) {
+            // 两个构造方法：
+            // 1、创建对象表示一个时间
+            Date d = new Date();
+            System.out.println(d);
+
+            // 2、创建对象表示一个指定的时间
+            // 0L：表示从时间原点开始过了0毫秒的时间
+            Date d2 = new Date(0L);
+            System.out.println(d2);
+
+            // 3、serTime 修改时间
+            d2.setTime(1000L); // 1s
+            System.out.println(d2);
+
+            // 4、getTime 获取时间
+            // 从时间原点开始过了多少毫秒
+            System.out.println(d2.getTime());
+        }
+}
