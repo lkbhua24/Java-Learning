@@ -1,0 +1,24 @@
+package com.lkbhua.MyApi.JDK7Time.SimpleDateFormat;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+public class Test {
+    /*假设你的初恋生日是2000-11-11
+    * 请用字符串表示i这个整数，并且将其转换为:2000年11月11日
+    * 逆推法：
+    *    把时间变成 2000年11月11日
+    *    需要一个SimpleDateFormat的对象，并定义格式
+    *    需要有一个Date的对象
+    *    将字符串解析成Date对象               */
+
+    public static void main(String[] args) throws ParseException {
+        String str = "2000-11-11";
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        Date date = sdf.parse(str);
+        SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy年MM月dd日");
+        String str1 = sdf1.format(date);
+        System.out.println(str1);
+    }
+}
