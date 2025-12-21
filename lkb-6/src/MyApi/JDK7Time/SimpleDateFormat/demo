@@ -1,0 +1,40 @@
+package com.lkbhua.MyApi.JDK7Time.SimpleDateFormat;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+public class demo {
+    public static void main(String[] args) throws ParseException {
+
+        // 作用2：解析(字符串 ——> 日期对象)
+        // 1、定义一个字符串表示时间
+        String str = "2025-04-24 08:24:16";
+        // 2、利用空参构造创建SimpleDateFormat的对象
+        // 细节：
+        // 创建对象的格式需要跟字符串的格式一样
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        Date date = sdf.parse(str);
+        // 3、打印结果
+        System.out.println(date.getTime());
+
+    }
+
+    // 作用1：指定输出格式
+    private static void method() {
+        // 1、利用空参构造创建SimpleDateFormat的对象
+        SimpleDateFormat sdf = new SimpleDateFormat();
+        Date d = new Date(0L);
+        String str = sdf.format(d);
+        System.out.println(str);
+        // 1970/1/1 08:00
+
+        // 2、利用带参构造创建SimpleDateFormat的对象，指定格式
+        SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy年MM月dd HH:mm:ss EE");
+        String str1 = sdf1.format(d);
+        System.out.println(str1);
+        // 1970年01月01 08:00:00
+
+        // 课堂练习：yyyy年MM月dd日 时:分:秒 星期E
+    }
+}
