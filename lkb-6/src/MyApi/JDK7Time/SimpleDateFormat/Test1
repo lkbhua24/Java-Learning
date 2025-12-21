@@ -1,0 +1,52 @@
+package com.lkbhua.MyApi.JDK7Time.SimpleDateFormat;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+public class Test1 {
+    public static void main(String[] args) throws ParseException {
+        /*需求：
+        秒杀活动：2023年11月11日 0：0：0
+        开始时间：2023年11月11日 0：10：0
+
+        小贾下单并付款的时间为：2023年11月11日 0：01：00
+        小皮下单并付款的时间为：2023年11月11日 0：11：00
+*/
+        // 1、比较两个时间
+        // 下单并付款的时间跟开始时间 和 结束时间去比
+        String startTime = "2023年11月11 00:00:00";
+        String endTime = "2023年11月11 00:10:00";
+        String orderTime = "2023年11月11 00:01:00";
+        String orderTime2 = "2023年11月11 00:11:00";
+
+        // 2、解析上面的时间
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy年MM月dd HH:mm:ss");
+        Date startDate = sdf.parse(startTime);
+        Date endDate = sdf.parse(endTime);
+        Date order1Date = sdf.parse(orderTime);
+        Date order2Date = sdf.parse(orderTime2);
+
+        // 3、得到三个对象的毫秒值
+        long startTimeMillis = startDate.getTime();
+        long endTimeMillis = endDate.getTime();
+        long order1TimeMillis = order1Date.getTime();
+        long order2TimeMillis = order2Date.getTime();
+
+        // 4、比较时间
+        if(order1TimeMillis >= startTimeMillis && order1TimeMillis <= endTimeMillis){
+            System.out.println("小贾的订单在活动时间段内");
+            System.out.println("订单通过");
+        }else{
+            System.out.println("小贾的订单不在活动时间段内");
+            System.out.println("订单未通过");
+        }
+        if(order2TimeMillis >= startTimeMillis && order2TimeMillis <= endTimeMillis){
+            System.out.println("小皮下单的订单在活动时间段内");
+            System.out.println("订单通过");
+        }else{
+            System.out.println("小皮下单的订单不在活动时间段内");
+            System.out.println("订单未通过");
+        }
+    }
+}
