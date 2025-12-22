@@ -1,0 +1,65 @@
+package com.lkbhua.MyApi.JDK8Time.Calender;
+
+import java.time.LocalTime;
+
+public class LocalTimeDemo {
+    public static void main(String[] args) {
+        /*LocalTime获取本地时间的日历对象（时、分、秒）*/
+
+        // 1、获取当前时间
+        LocalTime nowTime = LocalTime.now();
+        System.out.println("当前时间："+nowTime);
+        System.out.println("-------------------");
+
+        // 2、获取小时
+        int hour = nowTime.getHour();
+        System.out.println("小时："+hour);
+        System.out.println("-------------------");
+
+        // 3、获取分钟
+        int minute = nowTime.getMinute();
+        System.out.println("分钟："+minute);
+        System.out.println("-------------------");
+
+        // 4、获取秒
+        int second = nowTime.getSecond();
+        System.out.println("秒："+second);
+        System.out.println("-------------------");
+
+        // 5、获取纳秒
+        int nano = nowTime.getNano();
+        System.out.println("纳秒："+nano);
+        System.out.println("-------------------");
+
+        // 6、创建指定时间对象
+        LocalTime time = LocalTime.of(10, 10, 10);
+        System.out.println("指定时间："+time);
+        System.out.println("-------------------");
+        System.out.println(LocalTime.of(20, 20, 20));
+        System.out.println("-------------------");
+
+        // 7、is系列的方法
+        System.out.println(LocalTime.of(10, 10, 10).isBefore(LocalTime.of(20, 20, 20)));
+        System.out.println(LocalTime.of(10, 10, 10).isAfter(LocalTime.of(20, 20, 20)));
+        System.out.println("-------------------");
+
+        // 8、with系列方法
+        System.out.println(LocalTime.of(10, 10, 10).withHour(20));
+        System.out.println(LocalTime.of(10, 10, 10).withMinute(20));
+        System.out.println("-------------------");
+
+        // 9、plus系列方法
+        System.out.println(LocalTime.of(10, 10, 10).plusHours(1));
+        System.out.println(LocalTime.of(10, 10, 10).plusMinutes(1));
+        System.out.println(LocalTime.of(10, 10, 10).plusSeconds(1));
+        System.out.println(LocalTime.of(10, 10, 10).plusNanos(1));
+        System.out.println("-------------------");
+
+        // 10、minus系列方法
+        System.out.println(LocalTime.of(10, 10, 10).minusHours(1));
+        System.out.println(LocalTime.of(10, 10, 10).minusMinutes(1));
+        System.out.println(LocalTime.of(10, 10, 10).minusSeconds(1));
+        System.out.println(LocalTime.of(10, 10, 10).minusNanos(1));
+        System.out.println("-------------------");
+    }
+}
