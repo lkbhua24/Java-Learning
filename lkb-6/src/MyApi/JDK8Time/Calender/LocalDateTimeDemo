@@ -1,0 +1,50 @@
+package com.lkbhua.MyApi.JDK8Time.Calender;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+
+public class LocalDateTimeDemo {
+    public static void main(String[] args) {
+        /*LocalDateTime(包含的最全 年、月、日、时、分、秒)*/
+        LocalDateTime nowDateTime = LocalDateTime.now();
+        System.out.println("今天是::"+nowDateTime);
+        System.out.println("------------------------------------------------");
+
+        System.out.println(":"+nowDateTime.getYear());// 年
+        System.out.println(":"+nowDateTime.getMonth());// 月
+        System.out.println(":"+nowDateTime.getDayOfMonth());// 日
+        System.out.println(":"+nowDateTime.getHour());// 时
+        System.out.println(":"+nowDateTime.getMinute());// 分
+        System.out.println(":"+nowDateTime.getSecond());// 秒
+        System.out.println(":"+nowDateTime.getNano());// 纳秒
+
+        // 日：当年的第几天
+        System.out.println("dayofyear:"+nowDateTime.getDayOfYear());
+
+        // 星期
+        System.out.println("week:"+nowDateTime.getDayOfWeek());
+        System.out.println("week:"+nowDateTime.getDayOfWeek().getValue());
+
+        System.out.println("------------------------------------------------");
+
+        // 月份
+        System.out.println("month:"+nowDateTime.getMonth());
+        System.out.println("month:"+nowDateTime.getMonth().getValue());
+        System.out.println("------------------------------------------------");
+
+        // 可以转换成LocalDate类
+        // 利用toLocalDate()
+        LocalDate ld = nowDateTime.toLocalDate();
+        System.out.println("LocalDate:"+ld);
+        System.out.println("------------------------------------------------");
+
+        // 可以转换成LocalTime类
+        // 利用toLocalTime()
+        LocalTime lt = nowDateTime.toLocalTime();
+        System.out.println("LocalTime:"+lt);
+        System.out.println(lt.getHour());
+        System.out.println(lt.getMinute());
+        System.out.println(lt.getSecond());
+    }
+}
