@@ -1,0 +1,90 @@
+package com.lkbhua.MyApi.JDK8Time.Calender;
+
+import java.time.DayOfWeek;
+import java.time.LocalDate;
+import java.time.Month;
+import java.time.MonthDay;
+
+public class LocalDateDemo {
+    public static void main(String[] args) {
+        /*LocalDate演示*/
+        // 1、获取当前时间的日历对象(包含 年月日)
+        LocalDate now = LocalDate.now();
+        System.out.println("今天的日期是:"+now);
+
+        // 2、获取指定时间的日历对象(包含 年月日)
+        // 利用of方法
+        LocalDate ldDate = LocalDate.of(2020, 5, 5);
+        System.out.println("指定日期是:"+ldDate);
+
+        // 3、get系列方法获取日历中的每一个属性值
+        // 获取年：
+        int year = ldDate.getYear();
+        System.out.println("年:"+year);
+
+        // 获取月：
+        // 返回的是月份的对象，直接打印出来是July不是数字7
+        // 方式一：
+        Month m = ldDate.getMonth();
+        System.out.println("月:"+m);
+        // 用月份m.利用getValue()方法可以转换成数字
+        System.out.println(m.getValue());
+        System.out.println("------------------------------------------------");
+    
+        // 方式二：
+        // getMonthValue()：返回的是月份的int值
+        int month = ldDate.getMonthValue();
+        System.out.println("月:"+month);
+
+        // 获取日：
+        int day = ldDate.getDayOfMonth();
+        System.out.println("日:"+day);
+
+        // 获取一年的第几天
+        int dayOfYear = ldDate.getDayOfYear();
+        System.out.println("一年中的第几天:"+dayOfYear);
+        System.out.println("------------------------------------------------");
+
+        // 获取星期几
+        // case1：返回的是DayOfWeek枚举对象，直接打印是Wednesday不是数字
+        DayOfWeek dayOfWeek = ldDate.getDayOfWeek();
+        System.out.println("星期几:"+dayOfWeek);
+        System.out.println("星期几的数字:"+dayOfWeek.getValue());
+        System.out.println("------------------------------------------------");
+
+        // is开头的方法表示判断
+        // 这里是判断谁在前和 后
+        System.out.println(ldDate.isBefore(ldDate));
+        System.out.println(ldDate.isAfter(ldDate));
+        System.out.println("------------------------------------------------");
+
+        // with开头的是表示修改，注意：只能修改年月日
+        // 修改是不会改变原来对象的值的，只会产生一个新的对象
+        LocalDate ldDate1 = ldDate.withYear(2021);
+        System.out.println(ldDate1);
+        System.out.println("------------------------------------------------");
+
+        // minus开头的是表示减，只能减少年、月、日
+        LocalDate ldDate2 = ldDate.minusYears(1);
+        System.out.println(ldDate2);
+
+        // plus开头的是表示加，只能增加年、月、日
+        LocalDate ldDate3 = ldDate.plusDays(1);
+        System.out.println(ldDate3);
+        System.out.println("------------------------------------------------");
+
+        // 判断今天是否是你的生日
+        LocalDate birthDate = LocalDate.of(1999, 5, 5);
+        // .now()：获取当前时间
+        LocalDate nowDate = LocalDate.now();
+
+        // MonthDay：表示月份和日期的类
+        // .of(int month, int day)：指定月份和日期
+        MonthDay birMd = MonthDay.of(birthDate.getMonthValue(), birthDate.getDayOfMonth());
+        // .from(TemporalAccessor temporal)：从给定的时间对象中获取月份和日期
+        // nowDate: 当前时间的月份和日期
+        MonthDay nowMd = MonthDay.from(nowDate);
+        // equals()：判断两个对象是否相等
+        System.out.println("今天是你的生日吗？"+birMd.equals(nowMd));
+    }
+}
