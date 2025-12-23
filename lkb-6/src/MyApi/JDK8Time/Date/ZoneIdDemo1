@@ -1,0 +1,29 @@
+package com.lkbhua.MyApi.JDK8Time.Date;
+
+import java.time.ZoneId;
+import java.util.Set;
+
+public class ZoneIdDemo1 {
+    public static void main(String[] args) {
+        // static Set<String> getAvailableZoneIds() 获取Java中的支持的所有时区
+
+        // 1、获取所有时区名称
+        // 返回的是一个集合，该集合没有索引
+        Set<String> zoneIds = ZoneId.getAvailableZoneIds();
+        // for (String zoneId : zoneIds) {
+        //    System.out.println(zoneId);
+        // }
+        // System.out.println("------------------");
+
+
+        // 2、获取当前系统的默认时区
+        ZoneId z1 = ZoneId.systemDefault();
+        System.out.println(z1);
+
+        // 3、获取指定时区的时区
+        ZoneId z2 = ZoneId.of("Asia/Shanghai");
+        System.out.println(z2);
+        System.out.println("------------------");
+
+    }
+}
