@@ -1,0 +1,62 @@
+package com.lkbhua.MyApi.JDK8Time.Date;
+
+import java.time.Instant;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
+
+public class InstantDemo {
+    public static void main(String[] args) {
+        // 1、static Instant now()  获取当前时间的Instant对象(标准时间)
+        Instant i1 = Instant.now();
+        System.out.println(i1);
+
+        // 2、static Instant ofXxxx(long epochMilli)  根据给定的毫秒数，获取Instant对象
+        Instant instant1 = Instant.ofEpochMilli(0L);
+        System.out.println(instant1);
+
+        Instant instant2 = Instant.ofEpochMilli(1000L);
+        System.out.println(instant2);
+
+        Instant instant3 = Instant.ofEpochSecond(1000L);
+        System.out.println(instant3);
+
+        Instant instant4 = Instant.ofEpochSecond(1000L, 10000000L);
+        System.out.println(instant4);
+
+
+        // 3、ZonedDateTime atZone(ZoneId zone)  指定时区
+        // 类型为：ZoneID 再调用方法.of(String id)
+        ZonedDateTime zonedDateTime = Instant.now().atZone(ZoneId.of("Asia/Shanghai"));
+        System.out.println(zonedDateTime);
+        System.out.println("------------------");
+
+        // 4、boolean isXxxx(Instant otherInstant)  判断系列的方法
+        // ——
+        Instant instant5 = Instant.ofEpochMilli(0L);
+        Instant instant6 = Instant.ofEpochMilli(1000L);
+        // isAfter：判断调用者代表的时间是否在参数表示时间的前面
+        boolean result = instant4.isAfter(instant5);
+        System.out.println(result);
+
+        // isBefore：判断调用者代表的时间是否在参数表示时间的后面
+        boolean result1 = instant4.isBefore(instant5);
+        System.out.println(result1);
+
+
+        // 5、Instant minusXxxx(long duration, TemporalUnit unit)  减去时间
+        // 发生减少的时间是会创建一个新的Instant对象，不会改变调用者对象本身
+        Instant instant7 = Instant.ofEpochMilli(1000L);
+        System.out.println(instant7);
+        Instant instant8 = instant7.minusMillis(1000L);
+        System.out.println(instant8);
+        System.out.println("------------------");
+
+        // 6、Instant plusXxxx(long duration, TemporalUnit unit)  加上时间
+        // 发生增加的时间是会创建一个新的Instant对象，不会改变调用者对象本身
+        Instant instant9 = Instant.ofEpochMilli(1000L);
+        System.out.println(instant9);
+        Instant instant10 = instant9.plusMillis(1000L);
+        System.out.println(instant10);
+        System.out.println("------------------");
+    }
+}
