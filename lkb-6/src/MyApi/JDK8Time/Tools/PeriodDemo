@@ -1,0 +1,28 @@
+package com.lkbhua.MyApi.JDK8Time.Tools;
+
+import java.time.LocalDate;
+import java.time.Period;
+
+public class PeriodDemo {
+    public static void main(String[] args) {
+        // 当地本地 年月日
+        LocalDate today = LocalDate.now();
+        System.out.println("Today:"+today);
+
+        // 生日的  年月日
+        LocalDate birthDate = LocalDate.of(1999, 5, 5);
+        System.out.println("Birthday:"+birthDate);
+
+        Period period = Period.between(today, birthDate); // 第二个参数减第一个参数
+
+        // 注意是对象！
+        System.out.println("相差的时间间隔对象:"+period);
+        System.out.println("相差的年数:"+period.getYears());
+        System.out.println("相差的月数:"+period.getMonths());
+        System.out.println("相差的日数:"+period.getDays());
+
+        // toTotalMonths()：返回总相差的月数
+        System.out.println(period.toTotalMonths());
+
+    }
+}
