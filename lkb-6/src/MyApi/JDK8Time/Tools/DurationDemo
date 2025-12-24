@@ -1,0 +1,33 @@
+package com.lkbhua.MyApi.JDK8Time.Tools;
+
+import java.time.Duration;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
+public class DurationDemo {
+    public static void main(String[] args) {
+        //本地日期时间对象
+        LocalDateTime today = LocalDateTime.now();
+        System.out.println("现在时间是：" + today);
+
+        // 出生的日期时间对象
+        LocalDateTime birthDate = LocalDateTime.of(1999, 5, 5, 0, 0,00);
+        System.out.println("生日是：" + birthDate);
+
+        Duration duration = Duration.between(birthDate, today);
+        System.out.println("相差的时间间隔对象" + duration);
+        // PT232355H49M37.2503217S
+        // 232355H：相隔的小时数
+        // 49M：分钟
+        // 37.2503217S ： 秒钟
+        // 就是用上述的数据进行天数，小时，秒钟，分钟的转换
+        System.out.println("-----------------");
+        System.out.println("相差的毫秒数：" + duration.toMillis());
+        System.out.println("相差的秒数：" + duration.getSeconds());
+        System.out.println("相差的分钟数：" + duration.toMinutes());
+        System.out.println("相差的小时数：" + duration.toHours());
+        System.out.println("相差的天数：" + duration.toDays());
+        System.out.println("相差的纳秒数：" + duration.getNano());
+
+    }
+}
