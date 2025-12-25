@@ -1,0 +1,27 @@
+package com.lkbhua.MyApi.Object;
+
+public class demo1 {
+     public static void main(String[] args) {
+         // 1、toString(): 返回对象的字符串表示形式
+         Object obj = new Object();
+         String str = obj.toString();
+         System.out.println(str);
+         // java.lang.Object@10f87f48
+         // @前面的内容：包名 java.lang ＋类名 Object
+         // @： 固定格式
+         // @后面的内容：对象的地址值
+
+         Student s = new Student("张三", 18);
+         String str1 = s.toString();
+         System.out.println(str1);
+         // com.lkbhua.MyApi.Object.Student@2f4d3709
+
+         System.out.println(s);
+
+         // 2、public boolean equals(Object obj): 判断两个对象是否相等
+         Student s1 = new Student("张三", 18);
+         Student s2 = new Student("张三", 18);
+         System.out.println(s1.equals(s2));
+
+     }
+}
