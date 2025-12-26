@@ -1,0 +1,26 @@
+package com.lkbhua.MyApi.Object;
+
+public class UserTest {
+    public static void main(String[] args) throws CloneNotSupportedException {
+        // 1、创建一个对象
+        int[] data = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 0 };
+        User u1 = new User(1, "lkb", "123456", "girll", data);
+
+        // 2、克隆对象
+        // 不能直接调用u1.clone();
+        // 因为底层的代码是protected受保护的，只能在本类中使用
+        // 而我们想要使用，只能通过重写的方法。
+        User u2 =(User)u1.clone();
+
+        // 验证：Object中的Clone()是浅拷贝
+        int[] arr = u2.getData();
+        arr[0] = 100;
+
+        // 方法会在底层帮我们创建一个对象，并且把原对象中的数据拷贝过去。
+        // 1、重写Object中Clone()方法
+        // 2、让JavaBean类实现Cloneable接口
+        // 3、创建源对象并调用clone()方法
+        System.out.println(u1);
+        System.out.println(u2);
+    }
+}
