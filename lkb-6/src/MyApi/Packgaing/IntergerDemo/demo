@@ -1,0 +1,47 @@
+package com.lkbhua.MyApi.Packgaing.IntergerDemo;
+
+public class demo {
+    public static void main(String[] args) {
+        // 1、利用构造方法获取Integer对象(JDK5之前的方式)
+        // public Integer(int i) 根据传递的整数创建Integer对象
+        // public Integer(String s) 根据字符串创建Integer对象
+        Integer i1 = new  Integer(100);
+        Integer i2 = new Integer("1");
+        System.out.println(i1);
+        System.out.println(i2);
+
+        // 2、利用静态方法获取Integer对象(JDK5之前的方式)
+        // public static Integer valueOf(int i) 根据传递的整数创建Integer对象
+        // public static Integer valueOf(String s, int radix) 根据字符串和进制创建Integer对象
+        Integer i3 = Integer.valueOf(100);
+        Integer i4 = Integer.valueOf("123", 16);
+        System.out.println(i3);
+        System.out.println(i4);
+        System.out.println("------------------------------------------------");
+
+        // 3、这两种方式的区别(掌握)
+
+        // 在我们实际开发中，-128-127用的数据比较多
+        // 提前把这个范围内的数据创建好了对象
+        Integer i7 = Integer.valueOf(100);
+        Integer i8 = Integer.valueOf(100);
+        System.out.println(i7 == i8);// true
+
+        // 超过了底层创建对象的数组范围，会创建新的对象
+        // 使用i了new方法，所以地址值不一样
+        Integer i9 = Integer.valueOf(128);
+        Integer i10 = Integer.valueOf(128);
+        System.out.println(i9 == i10);// false
+
+
+        // 看到了new关键字，每一次new都是开辟了新的空间，两者地址值不一样
+        Integer i11 = new Integer(128);
+        Integer i12 = new Integer(128);
+        System.out.println(i11 == i12);// false
+
+
+        Integer i5 = new Integer(100);
+        Integer i6 = new Integer(100);
+        System.out.println(i5 == i6);// false
+    }
+}
