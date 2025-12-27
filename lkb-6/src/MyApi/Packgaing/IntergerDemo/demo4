@@ -1,0 +1,32 @@
+package com.lkbhua.MyApi.Packgaing.IntergerDemo;
+
+import java.util.Scanner;
+
+public class demo4 {
+    public static void main(String[] args) {
+        /*改写键盘录入的代码*/
+
+        // Before:
+        Scanner sc = new Scanner(System.in);
+        System.out.println("请输入一个整数：");
+        int a = sc.nextInt();
+        System.out.println(a);
+
+        String str = sc.next();
+        System.out.println(str);
+
+        // 弊端:
+        // 当我们使用next()、nextInt()、nextDouble()等方法时
+        // 遇见空格、回车、制表符都会结束本次输入
+        // 如：输入123 123，键盘只能录入空格前的123
+
+        // 而我需要的是一整个的接受，不管输入的是数字、字符串、字符、布尔值、空格、回车、制表符
+        // nextLine()方法可以解决
+        // 特点: 遇见回车才停止
+
+        String str1 = sc.nextLine();
+        System.out.println(str1);
+        int i = Integer.parseInt(str1);
+        System.out.println(i);
+    }
+}
