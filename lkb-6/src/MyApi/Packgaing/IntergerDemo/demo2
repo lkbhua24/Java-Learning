@@ -1,0 +1,20 @@
+package com.lkbhua.MyApi.Packgaing.IntergerDemo;
+
+public class demo2 {
+    public static void main(String[] args) {
+        // 在JDK5之后提出了一个机制
+        // 自动装箱和自动拆箱
+        // 自动装箱：把普通数据类型转换为对应的包装类对象
+        // 自动拆箱：把对应的包装类对象转换为对应的普通数据类型
+
+        // 自动装箱
+        // Integer i = 10;
+        // 在底层，此时还会调用Integer.valueOf(int i)得到一个Integer对象
+        // 只不过这个动作不需要我们去操作
+        // Integer i2 = new Integer(10);
+        // 自动拆箱
+        // int i1 = i2;
+
+        // 所以在JDK5之后，int和Integer之间可以看成是一回事，因为底层会自动进行转换
+    }
+}
