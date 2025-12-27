@@ -1,0 +1,40 @@
+package com.lkbhua.MyApi.Packgaing.IntergerDemo;
+
+public class demo3 {
+    public static void main(String[] args) {
+        /*Integer成员方法*/
+        // 1、把整数转换为二进制、八进制、十六进制
+        // toBinaryString()：把整数转换为二进制字符串
+        String str1 = Integer.toBinaryString(100);
+        System.out.println(str1); // 1100100
+
+        // toOctalString()：把整数转换为八进制字符串
+        String str2 = Integer.toOctalString(100);
+        System.out.println(str2); // 144
+
+        // toHexString()：把整数转换为十六进制字符串
+        String str3 = Integer.toHexString(100);
+        System.out.println(str3); // 64
+        System.out.println("------------------------------------------------");
+
+        // 4、将字符串类型的数据转换为int类型
+        // Java是强类型语言: 每种数据在Java中都有各自的数据类型
+        // 在计算的时候，如果不是同一种数据类型，是无法直接计算的。
+
+        // parseInt()：把字符串转换为int类型
+        int i = Integer.parseInt("123");
+        System.out.println(i+1);
+
+        // 细节1：
+        // 在类型转换的时候，括号中的参数只要是数字不能是其他，否则代码会报错，不能是abc等其他字符
+        // 细节2：
+        // 8中包装内中，除了Character外，都有对应的parseXXX()方法，进行类型转换
+        String str = "true";
+        boolean b = Boolean.parseBoolean( str);
+        System.out.println(b);
+
+        // 学会了这个之后
+        // 就要改写一下”键盘录入“的代码了
+
+    }
+}
