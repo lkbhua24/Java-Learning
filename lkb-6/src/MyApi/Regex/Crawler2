@@ -1,0 +1,35 @@
+package com.lkbhua.MyApi.Regex;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class Crawler2 {
+    public static void main(String[] args) {
+        // 贪婪爬取
+        // ab+
+        // 贪婪爬取：尽可能多的匹配 abbbbbbbbbbbbbbbbbbbbbb
+        // 懒惰爬取：尽可能少的匹配 ab
+        // Java中默认的就是贪婪爬取
+        // 如果我们在数量词+ * 的后面加上问好，那么此时候就是非贪婪爬取
+
+        String str = "Java自从95年问世以来，经历l很多版本，abbbbbbbbbbbbbbbbbbbbbaaaaaaaaaaaaaaaaa,目前企业中用的很多的是Java8和Java11." +
+                "因为这两个是长期支持的版本，下一个长期支持的版本是Java17，相信未来不久Java17也会逐渐登上历史舞台";
+
+        String regx = "ab+";
+        Pattern p = Pattern.compile(regx);
+        Matcher m = p.matcher(str);
+        while (m.find()) {
+            String s1 = m.group();
+            System.out.println(s1);
+        }
+        System.out.println("------------------");
+        String regx1 = "ab+?";
+        Pattern p1 = Pattern.compile(regx1);
+        Matcher m1 = p1.matcher(str);
+        while (m1.find()) {
+            String s1 = m1.group();
+            System.out.println(s1);
+        }
+        System.out.println("------------------");
+    }
+}
