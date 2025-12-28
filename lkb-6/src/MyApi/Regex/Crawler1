@@ -1,0 +1,29 @@
+package com.lkbhua.MyApi.Regex;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class Crawler1 {
+    public static void main(String[] args) {
+        // 有条件的爬取
+        String str = "Java自从95年问世以来，经历l很多版本，目前企业中用的很多的是Java8和Java11." +
+                "因为这两个是长期支持的版本，下一个长期支持的版本是Java17，相信未来不久Java17也会逐渐登上历史舞台";
+
+        // ?:理解为前面的数据Java
+        // =：表示在Java后面要跟随的数据
+        // 但是在获取的时，只获取前半部分
+        String regx = "Java(?=8|11|17)";
+        String regx1 = "Java(?:8|11|17)";
+        // !:表示Java后面不能跟随8|11|17
+        String regx2 = "Java(?!8|11|17)";
+
+        Pattern p = Pattern.compile(regx);
+        // 获取文本匹配器
+        Matcher m = p.matcher(str);
+        while (m.find()) {
+            String s1 = m.group();
+            System.out.println(s1);
+        }
+        // 为什么只有四个呢？第一个Java后面没有跟随任何内容，所以不符合规则
+    }
+}
