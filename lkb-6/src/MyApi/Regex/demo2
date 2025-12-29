@@ -1,0 +1,55 @@
+package com.lkbhua.MyApi.Regex;
+
+public class demo2 {
+    public static void main(String[] args) {
+        /*正则表达式的运用*/
+        // 只能是a，b，c
+        System.out.println("------------");
+        System.out.println("a".matches("[abc]")); //  true
+        System.out.println("z".matches("[abc]")); // false
+        System.out.println("ab".matches("[abc]")); // false
+        // 虽然这两个字母都是在这个范围中的，但是只能匹配一个
+        // 若想都匹配，则需要加一个[] 如：[abc][abc]
+        // 规律：从左往右一个一个匹配
+
+        // 不能出现a，b，c
+        System.out.println("------------");
+        System.out.println("a".matches("[^abc]")); // false
+        System.out.println("z".matches("[^abc]")); //  true
+        System.out.println("zz".matches("[^abc]")); //  false
+        System.out.println("zzz".matches("[^abc][^abc]")); //  true
+
+        // a到z，A到Z(包括头尾的范围)
+        System.out.println("------------");
+        System.out.println("a".matches("[a-zA-Z]")); // true
+        System.out.println("Z".matches("[a-zA-Z]")); //  true
+        System.out.println("aa".matches("[a-zA-Z]")); // false
+        System.out.println("zz".matches("[a-zA-Z]")); //  false
+        System.out.println("0".matches("[a-zA-Z]")); // false
+
+        // [a-d[m-p]] a到d，或者m到p
+        System.out.println("------------");
+        System.out.println("a".matches("[a-d[m-p]]")); // true
+        System.out.println("m".matches("[a-d[m-p]]")); //  true
+        System.out.println("p".matches("[a-d[m-p]]")); // true
+        System.out.println("z".matches("[a-d[m-p]]")); //  false
+        System.out.println("d".matches("[a-d[m-p]]")); // false
+        System.out.println("k".matches("[a-d[m-p]]")); // false
+
+        // [a-z&&[def]] a到z，并且是d，e，f 取范围的交集
+        // 细节：如果要求范围的交集，则需要加&&
+        // 如果写成了一个&，那么此时&就是表示符号，表示而且这个符号
+        // [a-z&[def]]：是不是在a到z的范围中，是不是&这个符号，是不是d，e，f
+        System.out.println("------------");
+        System.out.println("a".matches("[a-z&&[def]]")); // false
+        System.out.println("d".matches("[a-z&&[def]]")); //  true
+        System.out.println("e".matches("[a-z&&[def]]")); //  true
+        System.out.println("f".matches("[a-z&&[def]]")); //  true
+
+        // [a-z&&[^bc]] a到z，并且不是b，c
+        System.out.println("------------");
+        System.out.println("a".matches("[a-z&&[^bc]]")); //  true
+        System.out.println("b".matches("[a-z&&[^bc]]")); // false
+        System.out.println("c".matches("[a-z&&[^bc]]")); // false
+    }
+}
