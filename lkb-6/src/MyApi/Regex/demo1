@@ -1,0 +1,40 @@
+package com.lkbhua.MyApi.Regex;
+
+public class demo1 {
+    public static void main(String[] args) {
+        /*校验QQ号：6位-20位之间，0不能是开头，必须全部是数字*/
+
+        String qq = "1234567890";
+        System.out.println(checkQQ(qq));
+        String qq2 = "01234567890";
+        System.out.println(checkQQ2(qq2));
+
+    }
+
+    // case1：
+    // 核心思想：
+    // 先把异常数据进行过滤
+    public static boolean checkQQ(String qq){
+        int len = qq.length();
+        if(len < 6 || len > 20){
+            return false;
+        }
+        if(qq.charAt(0) == '0'){
+            return false;
+        }
+        for(int i = 0; i < len; i++){
+            char c = qq.charAt(i);
+            if(c < '0' || c > '9'){
+                return false;
+            }
+        }
+        return true;
+    }
+
+    // case2：
+    // 利用正则表达式，简单明了
+    public static boolean checkQQ2(String qq){
+        return qq.matches("[1-9]\\d{5,19}");
+    }
+
+}
