@@ -1,0 +1,28 @@
+package com.lkbhua.MyApi.Regex;
+
+public class demo3 {
+    public static void main(String[] args) {
+        // 1、Java中“\”是表示转义字符
+
+        // 表示任意一个字符
+        System.out.println("你".matches("..")); // false
+        System.out.println("你".matches(".")); // true
+        System.out.println("你是".matches("..")); // true
+
+        // \d 表示任意一个数字
+        System.out.println("你".matches("\\d")); // false
+        System.out.println("1".matches("\\d")); // true
+        System.out.println("11".matches("\\d")); // false
+
+        // \w 表示任意一个字母
+        System.out.println("你".matches("\\w")); // false
+        System.out.println("1".matches("\\w")); // false
+        System.out.println("a".matches("\\w")); // true
+
+        // 必须是数字 字母 下划线 至少6位
+        System.out.println("1236".matches("\\w{6,}"));
+        System.out.println("1234567".matches("\\w{6,}"));
+
+        System.out.println("123456".matches("\\w{4}"));
+    }
+}
