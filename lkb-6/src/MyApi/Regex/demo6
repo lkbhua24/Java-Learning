@@ -1,0 +1,17 @@
+package com.lkbhua.MyApi.Regex;
+
+public class demo6 {
+    public static void main(String[] args) {
+        /*正则表达式——分组练习2*/
+
+        String str = "我要学学编编编编编编程程程程";
+        // 需求：把重复的内容替换成一个
+        // 学、编、程
+        // (.): 表示重复内容的第一个字符看作一组
+        // \\1: 表示第一个字符再次出现
+        // + :  表示至少一次
+        // $1: 表示正则表达式第一组的内容拿到外面去用
+        String result = str.replaceAll("(.)\\1+","$1");
+        System.out.println(result);
+    }
+}
