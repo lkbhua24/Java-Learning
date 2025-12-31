@@ -1,0 +1,52 @@
+package com.lkbhua.MyApi.Regex;
+
+public class Test1 {
+    public static void main(String[] args) {
+        /*验证手机号码、邮箱号、座机电话，利用正则表达式*/
+        // 心得：
+        // 拿着正确的数据，从左到往右依次去写
+        // 电话：18373838319
+        // 第一位都是1，第二位是3-9，第三位-第11位都是0-9数字
+        String regex1 = "1[3-9]\\d{9}";
+        System.out.println("18373838319".matches(regex1));
+        System.out.println("18371238312".matches(regex1));
+        System.out.println("18374128313".matches(regex1));
+
+        // 座机号：010-12345678
+        // 020-2324242 02122442 027-42424 0712-3242434
+        // 一：区号 0\d{2,3} 0开头，表示从第二位开始可以是数字，可以出现2-3次
+        // 二：-   ？次数（0或者1）次
+        // 三：号码 第一位不能以0开头，从第二位开始可以任意的数字，号码的总长度5-10位
+        String regex2 = "0\\d{2,3}-?[1-9]\\d{4,9}";
+        System.out.println("010-12345678".matches(regex2));
+        System.out.println("020-2324242".matches(regex2));
+        System.out.println("02122442".matches(regex2));
+        System.out.println("027-42424".matches(regex2));
+        System.out.println("0712-3242434".matches(regex2));
+        System.out.println("010-1234567".matches(regex2));
+
+
+        // 邮箱：
+        // 3232323@qq.com zhangsan@163.com 123@gmail.com diei0009@pci.com.cn
+        // 思路：
+        // @前面：\\w+ : 表示任意的字母数字下划线至少出现 一次
+        // @中间：只能出现一次
+        // @后面： 3.1 .的左边：可以是字母可以是数字 [\\w^_]{2,6}
+        //       3.2   任意的字母加数字只能出现2-6次，不能出现下划线
+        //       3.3 .的右边：大小写字母都可以，只能出现2-3次：[a-zA-Z]{2,3}
+        //       我们可以把3.1和3.2看成一组，这一组可以出现1次或者两次
+        String regex3 = "\\w+@[\\w^_]{2,6}(\\.[a-zA-Z]{2,3}){1,2}";
+        System.out.println("3232323@qq.com".matches(regex3));
+        System.out.println("zhangsan@163.com".matches(regex3));
+        System.out.println("123@gmail.com".matches(regex3));
+        System.out.println("diei0009@pci.com.cn".matches(regex3));
+
+        String regex4 = "([01]\\d|2[0-3]):[0-5]\\d:[0-5]\\ d";
+        // 23:59:59
+        // | 表示或
+        // 01 02 03....
+        // 10 11 12 13...19
+        // 20 21 22 23
+
+    }
+}
