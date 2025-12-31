@@ -1,0 +1,40 @@
+package com.lkbhua.MyApi.Regex;
+
+public class Test2 {
+    public static void main(String[] args) {
+        /*请编写正则表达式验证用户是否满足要求：
+          大小写字母、数字、下划线一共4-16位
+          请编写正则表达式验证身份证是否满足要求*/
+        String regx1 = "[a-zA-Z0-9_]{4,16}";
+        System.out.println("a1234567890".matches(regx1));
+        System.out.println("lkb-code".matches(regx1));
+
+        // case1:
+        // 18位，前17位0-9，第18位0-9或者X或者x
+        String regx2 = "[1-9]\\d{16}(\\d|X|x)";
+        System.out.println("12345678901234567".matches(regx2));
+
+        // 忽略大小写的方式
+        String regx3 = "(?i)abc";
+        // 如果只想忽略某一位或者某一部分可以这样：
+        String regx4 = "a(?i)bc";
+        System.out.println("------------------");
+        System.out.println("ABC".matches(regx3)); // true
+        System.out.println("ABC".matches(regx4)); // false
+
+        // case2：
+        // 身份证的严格校验
+        // 前6位：省份、市区、派出所等信息，第一位不能是0，后面五位是任意数字
+        // 年前半部：   18、19、20
+        // 年后半部：   任意数字出现两次
+        // 月份：      01-09，10，11，12
+        // 日期：      01-31.
+        // 后面四位：   任意数字出现3次，最后一位可以是数字也可以是X或者x
+        // 心得：
+        // 第一步：按照正确的数据进行拆分
+        // 第二步：对拆分的数据进行编写正则
+        // 第三步：进行拼接
+        String regx5 = "[1-9]\\d{5}(18|19|20)\\d{2}(0[1-9]|1[0-2])(0[1-9]|[12]\\d|3[01])(\\d|(?i)x)";
+        // 快捷键Alt+Shift+上移键：挪动行代码
+    }
+}
