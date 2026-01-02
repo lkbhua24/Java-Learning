@@ -1,0 +1,83 @@
+package com.lkbhua.MyApi.System;
+
+public class demo2 {
+    public static void main(String[] args){
+        // -------------------------------数据源数组------起始索引-----目的地数组------起始索引-------拷贝个数
+        // 3、public static void arraycopy(Object src, int srcPos, Object dest, int destPos, int length): 数组拷贝
+        // 细节：
+        // 1、如果数组源和目的数组都是基本数据类型，那么两者的类型一定要保持一致，否则会报错
+       /*
+        int []arr = {1,2,3,4,5,6,7,8,9,10};
+        double []arr1 = new int[10];
+
+        System.arraycopy(arr, 0, arr1, 0, arr.length);
+
+        for (int i = 0; i < arr1.length; i++) {
+            System.out.print(arr1[i] + " ");
+        }
+
+        // 2、在拷贝的时候需要考虑数组的长度，如果超过范围也会报错
+        int []arr2 = {1,2,3,4,5,6,7,8,9,10};
+        int []arr3 = new int[5];
+
+        System.arraycopy(arr2, 0, arr3, 0, arr2.length);
+
+        for (int i = 0; i < arr3.length; i++) {
+            System.out.print(arr3[i] + " ");
+        }
+
+        // 3、如果数组源和目的数组都是引用数据类型，那么子类类型可以赋值给父类类型
+        Student s1 = new Student("张三", 18);
+        Student s2 = new Student("李四", 19);
+        Student s3 = new Student("王五", 20);
+
+        Student []students = {s1,s2,s3};
+
+        Person []students1 = new Student[3];
+        // 4、数组拷贝
+        System.arraycopy(students, 0, students1, 0, students.length);
+        // 只不过遍历的时候需要强转
+        for (int i = 0; i<arr2.length;i++){
+            Student stu = (Student)students1[i];
+            System.out.println(stu.getName() + " " + stu.getAge());
+        }
+    }
+}
+
+class  Person{
+    private String name;
+    private int age;
+
+    public Person() {}
+
+    public Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+    public int getAge() {
+        return age;
+    }
+    public void setAge(int age) {
+        this.age = age;
+    }
+}
+
+class Student extends Person{
+
+    public Student() {}
+
+    public Student(String name, int age) {
+        super(name, age);
+    }
+
+
+        */
+    }
+}
