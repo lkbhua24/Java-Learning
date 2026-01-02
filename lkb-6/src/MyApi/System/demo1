@@ -1,0 +1,74 @@
+package com.lkbhua.MyApi.System;
+
+import javax.imageio.metadata.IIOMetadataFormatImpl;
+
+public class demo1 {
+    public static void main(String[] args) {
+        // 1、public static void exit(int status): 终止虚拟机运行
+        // 参数：状态码
+        //  0：表示正常结束
+        // 非0：表示异常结束
+        // System.exit(0);
+        System.out.println("hello world看看我执行了吗?");
+        // 通常用在整个程序需要结束的时候使用。
+
+
+        // 2、public static long currentTimeMillis(): 返回当前时间毫秒数
+        int count = 0;
+
+        long time = System.currentTimeMillis();
+        System.out.println(time);
+        System.out.println("hello world");
+        // 应用：判断质数两种方法执行效率更快
+
+        long start = System.currentTimeMillis();
+
+        for(int i = 2; i < 10000; i++){
+            boolean flag = isPrime( i);
+            if(flag){
+                System.out.println(i);
+            }
+        }
+
+        long end = System.currentTimeMillis();
+        System.out.println("执行时间：" + (end - start));
+
+        long start1 = System.currentTimeMillis();
+        for(int i = 2; i < 10000; i++){
+            boolean flag = isPrime1( i);
+            if(flag){
+                System.out.println(i);
+            }
+        }
+        long end1 = System.currentTimeMillis();
+        System.out.println("执行时间：" + (end1 - start1));
+
+        // -------------------------------数据源数组------起始索引-----目的地数组------起始索引-------拷贝个数
+        // 3、public static void arraycopy(Object src, int srcPos, Object dest, int destPos, int length): 数组拷贝
+        int []arr = {1,2,3,4,5,6,7,8,9,10};
+        int []arr1 = new int[10];
+
+        System.arraycopy(arr, 0, arr1, 0, arr.length);
+        for (int i = 0; i < arr1.length; i++) {
+            System.out.print(arr1[i] + " ");
+        }
+        System.out.println();
+    }
+
+    public static boolean isPrime(int a){
+        for(int i = 2; i < a; i++){
+            if(a % i == 0){
+                return false;
+            }
+        }
+        return true;
+    }
+    public static boolean isPrime1(int a){
+        for(int i = 2; i < Math.sqrt(a); i++){
+            if(a % i == 0){
+                return false;
+            }
+        }
+        return true;
+    }
+}
