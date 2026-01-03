@@ -1,0 +1,31 @@
+package com.lkbhua.MyApi.Test;
+
+public class test1 {
+    public static void main(String[] args){
+        int count = 0;
+        // 判断一个数是否为一个质数
+        /* case1: 暴力循环
+        int a = 11;
+        for(int i = 2; i < a; i++){
+            count++;
+            if(a % i == 0){
+                System.out.println("不是质数");
+                return;
+            }
+        }
+        System.out.println("是质数");
+    }
+    */
+
+        // case2:优化
+        int a = 11;
+        for(int i = 2; i < Math.sqrt(a); i++){
+            count++;
+            if(a % i == 0){
+                System.out.println("不是质数");
+                return;
+            }
+            System.out.println("是质数");
+        }
+    }
+}
