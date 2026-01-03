@@ -1,0 +1,58 @@
+package com.lkbhua.MyApi.Test;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class test3 {
+    public static void main(String[] args) {
+        /* 键盘录入一些1-100之间的整数，并添加到集合中
+        *  直到集合中所有的数据和超过200为止*/
+
+        // 1、创建一个集合
+        ArrayList<Integer> list = new ArrayList<>();
+        Scanner sc = new Scanner(System.in);
+
+        // 2、键盘录入数据添加到集合中
+        while(true) {
+            System.out.println("请输入整数数字：");
+            String numStr = sc.nextLine();
+            // 3、把字符串转换成数字
+            int num = Integer.parseInt(numStr);
+            // 先把异常数据进行过滤
+            if (num < 1 || num > 100) {
+                System.out.println("输入的数字不符合要求，请重新输入");
+                continue;
+            }
+            // num:基本数据类型
+            // num——> Integer
+            // 在添加数据的时候触发了自动装箱
+            // 即 list.add(Integer.valueOf(num));
+            list.add(num);
+            int sum = getSum(list);
+            if (sum > 200) {
+                System.out.println("数据已经超过200，请勿继续输入");
+                break;
+            }
+        }
+
+        // 验证一下结论
+        for (int i = 0; i < list.size(); i++) {
+            System.out.print(list.get(i)+" ");
+        }
+        System.out.println();
+        System.out.println("当前集合中的数据为：" + list);
+
+    }
+
+    // 定义集合中的求和方法
+    private static int getSum(ArrayList<Integer> list) {
+        int sum = 0;
+        for(int i =0 ; i < list.size(); i++){
+            // i: 索引
+            // list.get(i): 集合中的元素
+            sum += list.get(i);
+        }
+        return sum;
+    }
+
+}
