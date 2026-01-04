@@ -1,0 +1,50 @@
+package com.lkbhua.MyApi.Test;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+public class test6 {
+    public static void main(String[] args) throws ParseException {
+        /*用代码的形式计算你到现在活了多少天*/
+
+        // case1：JDK7之前的方式
+        // 规则：只要对时间进行计算或者判断，都需要先获取当前时间的毫秒值
+        // JDK7
+
+        // case2：JDK8的方法
+        // JDK8();
+
+    }
+
+    /*
+    private static void JDK8() {
+        LocalDate birthTime = LocalDate.of(2000,1,1);
+        LocalDate nowTime = LocalDate.now();
+
+        long days = ChronoUnit.DAYS.between(birthTime,nowTime);
+        System.out.println("活了"+days+"天");
+    }
+
+    */
+
+    private static void JDK7() throws ParseException {
+        // 出生年月日
+        // 1、计算出生年月日的毫秒值
+        String birthday = "2005年1月1日";
+        // 利用SimpleDateFormat进行解析
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy年MM月dd日");
+        // parse()方法会给我们返回一个Date对象
+        Date date = sdf.parse(birthday);
+        // 利用date.getTime()方法，获取出生时间的毫秒值
+        long birthdaytime = date.getTime();
+
+        // 2、获取当前时间的毫秒值
+        long todayTime = System.currentTimeMillis();
+
+        // 3、计算间隔多少天
+        long time = todayTime - birthdaytime;
+        long day = time / (1000 * 60 * 60 * 24);
+        System.out.println("活了"+day+"天");
+    }
+}
