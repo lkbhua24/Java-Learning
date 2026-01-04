@@ -1,0 +1,51 @@
+package com.lkbhua.MyApi.Test;
+
+import java.time.LocalDate;
+import java.util.Calendar;
+
+public class test7 {
+    public static void main(String[] args) {
+        /*判断任意一个年份是闰年还是平年
+          要求：用JDK7和JDK8两种方式完成
+               二月有29天是闰年
+                一年有366天也是闰年*/
+
+        // JDK7
+        // 开始时间2000年1月1日 00:00:00
+        // 结束时间2100年1月1日 23:59:59
+        // 看看间隔是不是366天
+
+        // 或者只看2月份
+        // 开始时间：2000年2月1日 00:00:00
+        // 结束时间：2000年3月1日 23:59:59
+        // 看看间隔是不是29天
+        // 但是很显然这俩中都比较麻烦
+        // 介绍一个类：日历类
+        // 简化1：我们可以把时间设置为2000年3月1日 00:00:00
+        //       再把日历往前减去一天
+        // 看看日历是28号还是29号？
+        // 简化2：我们可以把时间设置为2000年1月1日 00:00:00
+        //       再把日历往前减去一天
+        // 统计是365天还是366天？
+
+        // 默认是今天
+        Calendar c = Calendar.getInstance();
+        // 注意：月份的范围是0-11
+        c.set(2000, 2, 1);
+        // 减去一天
+        c.add(Calendar.DAY_OF_MONTH, -1);
+        // 获取结果
+        int day = c.get(Calendar.DAY_OF_MONTH);
+        System.out.println(day == 29 ? "闰年" : "平年");
+
+        // JDK8：
+        // 设定时间
+        LocalDate ld = LocalDate.of(2000, 3, 1);
+        // 减去一天
+        ld = ld.minusDays(1);
+        System.out.println(ld.getDayOfMonth() == 29 ? "闰年" : "平年");
+
+        System.out.println("------------------------------------------------");
+        System.out.println(ld.isLeapYear());
+    }
+}
