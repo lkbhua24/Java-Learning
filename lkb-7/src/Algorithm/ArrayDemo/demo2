@@ -1,0 +1,74 @@
+package com.lkbhua.Algorithm.ArrayDemo;
+
+import java.util.Arrays;
+import java.util.Comparator;
+
+public class demo2 {
+    public static void main(String[] args) {
+        /*
+            public static void sort(arr, rules)   按照指定规则进行排序
+
+            参数一：要排序的数组
+            参数二：排序的规则
+            细节：
+                只能给引用数据类型的数组进行排序
+                如果数组是基本数据类型的，需要变成其对于的包装类
+             */
+
+        int[] arr = {6,1,2,7,9,3,4,5,10,8};
+
+        Integer[] arr1 = new Integer[arr.length];
+        for (int i = 0; i < arr.length; i++) {
+            arr1[i] = arr[i];
+        }
+
+        // 第二个参数是一个接口，所以我们在调用方法的时候，需要传递这个接口的实现对象，并作为排序的规则
+        // 但是这个规则类我们只使用一次，所以我们可以使用匿名内部类。
+
+        // sort()方法的底层原理:
+        // 利用插入排序() + 二分查找的方式进行排序的
+        // 默认把0索引的数据当作是有序的数据，1索引到最后的数据当作是无序的数据
+        // 遍历无序的序列得到每一个元素，假设当前遍历得到的元素是A元素
+        // 把A往有序序列中进行插入，在插入的时候，是利用二分查找的确定A元素的插入点、
+        // 然后拿着A元素跟插入点进行比较，比较的规则：就是Comparator重写方法的方法体
+        // 如果方法的返回值是负数，拿着A继续跟前面的数据进行比较
+        // 如果方法的返回值是整数，拿着A跟后面的数据进行比较
+        // 如果方法的返回值是0，也是继续跟后面的数据进行比较
+        // 直到能确定A的最终位置为止
+
+        // comparator方法的参数;
+        // 参数一：o1:表示我们在无序序列中遍历得到的每一个元素
+        // 参数二；o2:表示有序序列中的元素
+
+        // 返回值：
+        // 负数：表示o1应该在o2之前，即要插入的元素是小的，排在前面
+        // 正数：表示o1应该在o2之后，即要插入的元素是较大的，排在后面
+        // 0：表示o1应该在o2中间，即要插入的元素是相等的，排在后面
+
+
+        // 简单理解
+        // o1 - o2: 升序排列
+        // o2 - o1: 降序排列
+        Arrays.sort(arr1, new Comparator<Integer>() {
+            @Override
+            public int compare(Integer o1, Integer o2) {
+                if (o1 == null && o2 == null) {
+                    return 0;
+                }
+                if (o1 == null) {
+                    return -1;
+                }
+                if (o2 == null) {
+                    return 1;
+                }
+                System.out.println("----------------------");
+                System.out.println("o1:" + o1 + " o2:" + o2);
+                return o2 - o1;
+            }
+        });
+
+        System.out.println(Arrays.toString(arr1));
+
+
+    }
+}
