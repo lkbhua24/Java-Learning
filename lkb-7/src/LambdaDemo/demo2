@@ -1,0 +1,44 @@
+package com.lkbhua.Algorithm.LambdaDemo;
+
+public class demo2 {
+    public static void main(String[] args) {
+        /*
+            Lambda表达式的注意点：
+                1、Lambda表达式可以用来简化匿名内部类，其他地方不能用
+                2、Lambda表达式只能简化函数式接口的匿名内部类的写法
+                3、函数式接口：
+                    有且只有一个抽象方法的接口叫函数式接口，接口上方可以@functionInterface注解*/
+
+        // 1、利用匿名内部类的形式去调用下面的方法
+        // 调用一个方法的时候，如果方法的形参是一个接口，那么我们要传递这个接口的实现类对象
+        // 如果实现类对象只要用到一次，就可以用匿名内部类
+        // new不是这个接口，而是后面这个没有名字的类的对象
+        // 这个没有名字的类：是实现了这个Swim接口
+        // 那么这个整体就可以看作是Swim的实现类对象
+        method(new Swim() {
+            @Override
+            public void swim() {
+                System.out.println("匿名内部类");
+            }
+        });
+
+
+        // 2、利用Lambda表达式进行改写
+        // 必须是函数式接口(接口，是其他的抽象类都不行)
+        method(() -> {
+            System.out.println("Lambda表达式");
+        });
+
+    }
+    public static void method(Swim s){
+        s.swim();
+    }
+}
+
+@FunctionalInterface
+interface Swim{
+    public abstract void swim();
+    // public abstract void show(){
+    //    System.out.println("默认方法");
+    // }
+}
