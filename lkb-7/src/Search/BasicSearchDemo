@@ -1,0 +1,24 @@
+package com.lkbhua.Algorithm.Search;
+
+public class BasicSearchDemo {
+    public static void main(String[] args) {
+        /*基本查找算法
+          核心：
+          从0索引开始挨个查找，即顺序查找
+          需求：定义一个方法利用基本查找，查询某个元素是否存在
+          数据：{131，127，147，81，103，23，7，79}*/
+        int[] arr = {131,127,147,81,103,23,7,79};
+        int number = 23;
+        boolean result = basicSearch(arr,number);
+        System.out.println(result);
+    }
+    public static boolean basicSearch(int[] arr, int value){
+        // 利用基本查找number在数组中是否存在
+        for (int i = 0; i < arr.length; i++) {
+            if(arr[i] == value){
+                return true;
+            }
+        }
+        return false;
+    }
+}
