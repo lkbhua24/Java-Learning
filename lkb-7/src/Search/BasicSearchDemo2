@@ -1,0 +1,45 @@
+package com.lkbhua.Algorithm.Search;
+
+import java.util.ArrayList;
+
+public class BasicSearchDemo2 {
+    public static void main(String[] args) {
+        // 课堂练习1
+        // 需求：定义一个方法利用基本查找，查询某个元素在数组中的索引
+        // 要求：不需要考虑数组中元素重复的情况
+        int[] arr = {1,2,3,4,5,6,7,8,9,10};
+        int number = 5;
+        int index = basicSearch(arr, number);
+        System.out.println(index);
+
+        // 课堂练习2
+        // 需求：定义一个方法利用基本查找，查询某个元素在数组中的索引
+        // 要求：需要考虑数组中元素重复的情况
+        // 心得：如果要返回多个数据，可以把这些数据放在一个集合中返回
+        int[] arr2 = {1,2,3,4,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,};
+        int target = 5;
+        ArrayList<Integer> indexs = basicSearch2(arr2, target);
+        System.out.println(indexs);
+
+    }
+    public static int basicSearch(int[] arr, int value){
+        for (int i = 0; i < arr.length; i++) {
+            if(arr[i] == value){
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    public static ArrayList<Integer> basicSearch2(int[] arr, int value){
+        ArrayList<Integer> indexs = new ArrayList<>();
+        int count = 0;
+        for (int i = 0; i < arr.length; i++) {
+            if(arr[i] == value){
+                indexs.add(i);
+                count++;
+            }
+        }
+        return indexs;
+    }
+}
