@@ -1,0 +1,76 @@
+package com.lkbhua.Algorithm.sort;
+
+public class QuickSortDemo2 {
+    public static void main(String[] args) {
+        /*快速排序：完整代码
+             第一轮：以0索引的数字为基准数，确定基准数在数组中正确的位置
+             比基准数小的全都在左边，比基准数大的全都在右边。
+             后面依次类推*/
+
+        int[] arr = {6,1,2,7,9,3,4,5,10,8};
+        quickSort(arr, 0, arr.length - 1);
+
+        for(int i = 0; i < arr.length; i++){
+            System.out.print(arr[i]+" ");
+        }
+
+    }
+
+    // 参数一：数组
+    // 参数二：左边索引
+    // 参数三：右边索引
+    public static void quickSort(int[] arr, int left, int right){
+
+        // 递归的出口
+        if(left >= right){
+            return;
+        }
+
+        // 定义两个变量记录左右索引
+        int start = left;
+        int end = right;
+
+        // 记录基准数
+        int baseNumber = arr[left];
+
+        // 利用循环找到要交换的数字
+        while(start != end){
+            // 利用end索引向左移动，找到比baseNumber小的数字
+            while (true){
+                if(end <= start || arr[end] < baseNumber){
+                    break;
+                }
+                end--;
+            }
+
+            // 利用start索引向右移动，找到比baseNumber大的数字
+            while( true){
+                if(end <= start || arr[start] > baseNumber){
+                    break;
+                }
+                start++;
+            }
+
+            // 把end和start索引的数字交换
+            int temp = arr[start];
+            arr[start] = arr[end];
+            arr[end] = temp;
+
+        }
+
+        // 当start和end相等的时候，交换start索引的数字和baseNumber
+        // 表示基准数在数组中的正确位置
+        // 基准数归位:
+        int temp = arr[left];
+        arr[left] = arr[start];
+        arr[start] = temp;
+
+        // 确定6左边的范围，重复刚刚的动作
+        quickSort(arr, left, start - 1);
+
+
+        // 确定6右边的范围，重复刚刚的动作
+        quickSort(arr, start + 1, right);
+
+    }
+}
