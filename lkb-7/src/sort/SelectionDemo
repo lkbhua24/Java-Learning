@@ -1,0 +1,42 @@
+package com.lkbhua.Algorithm.sort;
+
+public class SelectionDemo {
+    public static void main(String[] args) {
+        /*选择排序：
+            1、从0索引开始，跟后面的元素一一比较
+            2、小的放前面，大的放后面
+            3、第一次循环结束后，最小的数据已经确定
+            4、第二次循环从1索引开始以此类推*/
+
+        // 1、定义数组
+        int[] arr = {3, 9, -1, 10, 20};
+
+        for (int i = 0; i < arr.length; i++){
+            System.out.print(+arr[i] + " ");
+        }
+
+        System.out.println();
+
+        // 2、利用选择排序
+        // 外循环：
+        // i:表示这一轮中，我拿着哪个索引上的数据跟后面的数据进行比较并交换
+        for(int i = 0; i < arr.length - 1; i++){
+            // 内循环：拿着i和i后面的数据进行比较
+            // 这里巧妙用j = i +1 ；这样可以做到i一直一轮跟后面的数据进行比较
+            for(int j = i + 1; j < arr.length; j++){
+                if(arr[i] > arr[j]){
+                    // 拿着i的数据跟j的数据进行交换
+                    int temp = arr[i];
+                    arr[i] = arr[j];
+                    arr[j] = temp;
+                }
+            }
+        }
+
+        for(int i = 0; i < arr.length; i++){
+            System.out.print("比较循环后:"+arr[i] + " ");
+        }
+        System.out.println();
+
+    }
+}
