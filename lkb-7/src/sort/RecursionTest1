@@ -1,0 +1,25 @@
+package com.lkbhua.Algorithm.sort;
+
+public class RecursionTest {
+    public static void main(String[] args) {
+        /*利用递归思想：求1-100之间的和*/
+
+        // 大问题拆解为小问题
+        // 1-100之间的和 = 100 + (1-99之间的和)
+        // 1-99之间的和 = 99 + (1-98之间的和)
+        // 1-98之间的和 = 98 + (1-97之间的和)
+        // 依次类推------------
+        // 1-1之间的和 = 1 (递归的出口)
+        int sum = getSum(100);
+        System.out.println(sum);
+    }
+
+    public static int getSum(int n){
+        if(n == 1){
+            return 1;
+        }
+
+        // 递归调用
+        return n + getSum(n - 1);
+    }
+}
