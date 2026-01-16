@@ -1,0 +1,12 @@
+package com.lkbhua.Test;
+
+public class test {
+    public static void main(String[] args) {
+        /*定义一个数组存储一些女朋友的对象，利用Arrays中的sort方法进行排序
+          要求1：属性有姓名、年龄、身高
+          要求2：按照年龄的大小进行排序，年龄一样，按照身高进行排序，身高一样，则按照姓名的字母进行排序
+           （姓名中不要有中文和特殊符号）*/
+
+        
+    }
+}
