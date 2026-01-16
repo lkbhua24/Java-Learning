@@ -1,0 +1,37 @@
+package com.lkbhua.Test.test1;
+
+public class GirlFriend {
+    private String name;
+    private int age;
+    private int high;
+
+    public GirlFriend() {}
+
+    public GirlFriend(String name, int age, int high) {
+        this.name = name;
+        this.age = age;
+        this.high = high;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+    public String getName() {
+        return name;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+    public int getAge() {
+        return age;
+    }
+
+    public void setHigh(int high) {
+        this.high = high;
+    }
+    public int getHigh() {
+        return high;
+    }
+
+}
