@@ -1,0 +1,33 @@
+package com.lkbhua.Test.test2;
+
+public class test1 {
+    public static void main(String[] args) {
+        /* 有一堆猴子，猴子第一天吃桃子吃了其中的一半，并多吃了一个
+           以后每天都吃当前剩下来的一半，然后再多吃一个
+           第10天的时候(还没吃)，发现只剩下一个桃子了，请问：最初总共多少个桃子?
+           DAY10 : 1
+           DAY9 : (DAY10)+1 = 2 * 2 = 4
+           DAY8 : (DAY9)+1 = 5 * 2 = 10
+           DAY7 : (DAY8)+1 = 11 * 2 = 22
+           DAY6 : (DAY7)+1 = 23 * 2 = 46
+           递归思想：
+               1、出口：DAY 10 = 1
+               2、递归：每一天的桃子数 = (前面一天)+1 * 2
+        */
+
+        int count = getCount(1);
+        System.out.println("一共有"+count+"个桃子");
+
+    }
+    public static int getCount(int day){
+        if(day < 0 || day > 10){
+            System.out.println("当前时间不符合题目要求");
+            return -1;
+        }
+        if(day == 10){
+            return 1;
+        }else{
+            return (getCount(day+1)+1)*2;
+        }
+    }
+}
