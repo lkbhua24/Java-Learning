@@ -1,0 +1,21 @@
+package com.lkbhua.Test.test2;
+
+public class test2 {
+    public static void main(String[] args) {
+        /* 爬楼梯20个台阶，一次爬一节楼梯，也可以一次两阶楼梯 一共有多少种爬法
+        */
+     System.out.println(getNum(20));
+    }
+    public static int getNum(int n){
+        if(n<=0){
+            return 0;
+        }
+        if(n==1){
+            return 1;
+        }
+        if(n==2){
+            return 2;
+        }
+        return getNum(n-1)+getNum(n-2);
+    }
+}
