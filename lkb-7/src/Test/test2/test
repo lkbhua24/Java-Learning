@@ -1,0 +1,54 @@
+package com.lkbhua.Test.test2;
+
+public class test {
+    public static void main(String[] args) {
+        /* 有一对兔子，从出生后的第三个月，每一个月都生一对兔子
+           小兔子长到第三个月后又每个月都生一对兔子，假如兔子不死，问第十二个月后有多少对兔子
+           1月：1对
+           2月：1对
+           3月：2对
+           4月：3对
+           5月：5对
+           6月：8对
+           斐波那契数列！！！
+        */
+        // case1：
+        method1();
+
+        // case2:
+        // 递归的方式
+        // 注意：
+        // 1、递归的出口
+        // 2、递归的规律
+        // Fn(12) = Fn(11) + Fn(10)
+        // Fn(11) = Fn(10) + Fn(9)
+        // -------------------
+        // Fn(3) = Fn(2) + Fn(1)
+        months(12);
+        System.out.println("兔子的12个月之后数量为："+months(12)+"只");
+
+    }
+
+    public static int months(int n){
+        if (n == 1 || n == 2){
+            return 1;
+        }
+        return months(n - 1) + months(n - 2);
+    }
+
+
+    public static void method1(){
+        // case1：
+        // 1、创建一个长度为12的数组
+        int[] arr = new int[12];
+        // 2、手动赋值给0索引和1索引的数据
+        arr[0] = 1;
+        arr[1] = 1;
+        // 3、利用循环给剩余的索引赋值
+        for (int i = 2; i < arr.length; i++) {
+            arr[i] = arr[i - 1] + arr[i - 2];
+        }
+        // 4、获取最大索引上的数据即可
+        System.out.println("兔子的12个月之后数量为："+arr[arr.length - 1]+"只");
+    }
+}
