@@ -1,0 +1,56 @@
+package com.lkbhua.collection;
+
+import java.util.ArrayList;
+import java.util.Collection;
+
+public class CollectionDemo1 {
+    public static void main(String[] args) {
+        /*
+            public boolean add(E e)         添加
+            public void clear()             清空
+            public boolean remove(E e)      删除
+            public boolean contains(E e)    判断是否包含
+            public boolean isEmpty()        判断是否为空
+            public int size()               集合长度
+
+        注意点：
+        Collection 是一个接口，不能创建对象
+        所以：只能创建它实现类的对象
+        实现类：有一个实现类我们很熟悉，ArrayList
+        */
+
+        // 目的：为了学习 Collection 接口里面的方法
+        Collection<String> coll = new ArrayList<>();
+
+        // 1、添加元素
+        // 细节1: 返回值：boolean类型，如果我们要往List集合中添加数据，那么返回值永远是true，因为List集合允许添加重复的元素
+        // 细节2：如果我们往Set集合中添加数据，如果当前添加的元素不存在，方法返回true，如果当前添加的元素已经存在，方法返回false
+        coll.add("hello");
+        System.out.println(coll);
+
+        // 2、清空
+        coll.clear();
+        System.out.println(coll);
+
+        coll.add("hello");
+        coll.add("hellolkbhua");
+
+        // 3、删除元素
+        // 注意：因为Collection定义的是共性的方法，所以不能通过索引删除，只能通过元素的对象进行删除
+        boolean b = coll.remove("hello");
+        System.out.println(b);
+
+        // 4、判断是否包含
+        // 细节：底层是依赖equals方法进行判断的
+        // 如果集合中存储的是自定义对象，也想通过equals方法判断，那么必须重写equals方法
+        System.out.println(coll.contains("hello"));
+        System.out.println(coll.contains("hellolkbhua"));
+
+        // 5、判断是否为空
+        System.out.println(coll.isEmpty());
+
+        // 6、获取集合长度
+        System.out.println(coll.size());
+
+    }
+}
