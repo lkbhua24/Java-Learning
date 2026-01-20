@@ -1,0 +1,34 @@
+package com.lkbhua.collection;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.function.Consumer;
+
+public class CollectionDemo4 {
+    public static void main(String[] args) {
+        /* Lambda表达式遍历
+               default void forEach(Consumer<? super T> action)；*/
+
+        // 1、创建集合
+        Collection<String> c = new ArrayList<>();
+        c.add("hello");
+        c.add("world");
+        c.add("java");
+
+        // 利用匿名内部类
+        // forEach()是一个接口，函数式接口
+        // 底层原理：其实也会自己遍历集合，得到每一个元素
+        // 把得到的每一个元素，传递给accept方法
+        c.forEach(new Consumer<String>() {
+            @Override
+            // s：一次表示集合中的每一个元素
+            public void accept(String s) {
+                System.out.println(s);
+            }
+        });
+
+        // 2、利用Lambda表达式
+        c.forEach(s -> System.out.println(s));
+
+    }
+}
