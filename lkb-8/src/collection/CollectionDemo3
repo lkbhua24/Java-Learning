@@ -1,0 +1,31 @@
+package com.lkbhua.collection;
+
+import java.util.ArrayList;
+import java.util.Collection;
+
+public class CollectionDemo3 {
+    public static void main(String[] args) {
+        /* 增强型for代码演示
+              格式：
+                for(数据类型 变量名： 集合/数组){
+                }
+        */
+
+        // 1、创建集合对象
+        Collection<String> coll = new ArrayList<>();
+        coll.add("hello");
+        coll.add("world");
+        coll.add("java");
+
+
+        // 快捷键
+        // 集合名字 + for 回车
+        // 2、增强型for循环
+        // s：就是一个第三方的变量
+        for(String s : coll){
+            System.out.println(s);
+        }
+        System.out.println("------------------");
+
+    }
+}
