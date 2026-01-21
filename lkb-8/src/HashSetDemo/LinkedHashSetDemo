@@ -1,0 +1,29 @@
+package com.lkbhua.HashSetDemo;
+
+import java.util.LinkedHashSet;
+
+public class LinkedHashSetDemo {
+    public static void main(String[] args) {
+        /* LinkedHashSet实现类的应用*/
+
+        // 1、创建4个学生对象
+        Student s1 = new Student("lkbhua", 18);
+        Student s2 = new Student("ZengQ", 18);
+        Student s3 = new Student("TwoBaby", 18);
+        Student s4 = new Student("JamesHarden", 36);
+
+        // 2、创建LinkedHashSet集合对象
+        LinkedHashSet<Student> lhs = new LinkedHashSet<>();
+        lhs.add(s1);
+        lhs.add(s2);
+        lhs.add(s3);
+        lhs.add(s4);
+
+        // 3、遍历集合
+        for(Student s : lhs){
+            System.out.println(s.getName() + ":" + s.getAge());
+        }
+        System.out.println("--------------------------------");
+
+    }
+}
