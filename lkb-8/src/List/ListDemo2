@@ -1,0 +1,60 @@
+package com.lkbhua.List;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class ListDemo2 {
+    public static void main(String[] args) {
+        /* List的五种遍历方式
+             1、迭代器
+             2、列表迭代器
+             3、增强for
+             4、Lambda表达式
+             5、普通for循环*/
+
+        // 1、创建集合
+        List<String> list = new ArrayList<>();
+        list.add("aaa");
+        list.add("bbb");
+        list.add("ccc");
+
+        // 2、创建迭代器
+        java.util.Iterator<String> it = list.iterator();
+        while (it.hasNext()) {
+            String s = it.next();
+            System.out.println(s);
+        }
+        System.out.println("-----------------");
+
+        // 3、增强 for
+        for (String s : list) {
+            System.out.println(s);
+        }
+        System.out.println("-----------------");
+
+        // 4、Lambda表达式
+        list.forEach(s -> System.out.println(s));
+        System.out.println("-----------------");
+
+        // 5、普通for循环
+        for (int i = 0; i < list.size(); i++) {
+            String s = list.get(i);
+            System.out.println(s);
+        }
+        System.out.println("-----------------");
+
+        // 6、列表迭代器
+        // 同样的也是一个接口，是迭代器的子接口
+        // 新增了一个方法add()
+        java.util.ListIterator<String> lit = list.listIterator();
+        while (lit.hasNext()) {
+            String s = lit.next();
+            if("bbb".equals(s)){
+                lit.add("ddd");
+            }
+            System.out.println(s);
+        }
+        System.out.println("-----------------");
+
+    }
+}
