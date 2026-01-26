@@ -1,0 +1,50 @@
+package com.lkbhua.setDemo;
+
+import java.util.HashSet;
+import java.util.Set;
+
+public class demo1 {
+    public static void main(String[] args) {
+        /* 利用set系列的集合，添加字符串，并使用多种方式遍历
+                ① 迭代器
+                ② 增强for
+                ③ Lambda表达式
+        */
+
+        // 1、创建一个set集合的对象
+        // set是一个接口，不能创建对象，只能创建其实现类的对象
+        Set<String> set = new HashSet<>();
+
+        // 2、添加元素
+        // 注意：
+        // 之前我们list系列的add()方法添加的时候也是有返回值的，但是list系列运行元素重复，所以返回值总是true
+        // 现在set系列的集合，是不允许添加重复的元素，如果添加重复的元素，那么返回值是false
+        boolean r1 = set.add("lkbhua");
+        boolean r2 = set.add("lkbhua");
+        System.out.println(r1); // true
+        System.out.println(r2); // false
+
+        set.add("hello");
+        set.add("world");
+        set.add("java");
+
+        System.out.println(set); //[world, java, hello, lkbhua]
+        // 说明存和取的顺序是不一样的
+
+        // 1、利用迭代器的方式进行遍历
+        /*  Iterator<String> it = set.iterator();
+        while(it.hasNext()){
+            String s = it.next();
+            System.out.println(s);
+        }
+        */
+
+        // 2、利用增强for进行遍历
+        for(String s : set){
+            System.out.println(s);
+        }
+
+        // 3、利用Lambda表达式进行遍历
+        set.forEach(s -> System.out.println(s));
+    }
+}
