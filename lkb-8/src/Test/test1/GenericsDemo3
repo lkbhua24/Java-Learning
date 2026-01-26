@@ -1,0 +1,23 @@
+package com.lkbhua.Test.test1;
+
+public class GenericsDemo3 {
+    public static void main(String[] args) {
+                /* 泛型接口：
+        1、实现类给出具体的类型
+        2、实现类延续泛型，创建实现类对象时再确定类型
+    */
+        MyArraysList3<String> list = new MyArraysList3<>();
+        list.add("hello");
+        list.add("world");
+        System.out.println(list.get(0));
+        System.out.println(list.get(1));
+
+        MyArraysList3<Integer> list2 = new MyArraysList3<>();
+        list2.add(1);
+        list2.add(2);
+        System.out.println(list2.get(0));
+        System.out.println(list2.get(1));
+
+
+    }
+}
