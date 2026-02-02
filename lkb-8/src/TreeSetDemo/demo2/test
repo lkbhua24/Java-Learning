@@ -1,0 +1,39 @@
+package com.lkbhua.TreeSetDemo.demo2;
+
+import java.util.TreeSet;
+
+public class test {
+    public static void main(String[] args) {
+        /* 学习目的：自定义的数据类型如何让TreeSet排序？
+         需求：创建TreeSet集合，并添加3个学生对象
+           学生对象属性：
+                姓名，年龄。
+                要求按照学生的年龄进行排序
+                同年龄的按照姓名字母进行排序
+                通姓名的，同年龄认为是同一个人
+
+            方式一：
+                默认的的排序规则/自然排序
+                Student实现的Comparable接口，重写里面的抽象方法，再指定比较规则！
+         */
+
+        // 1、创建三个学生对象
+        Student s1 = new Student("lkbhua", 18);
+        Student s2 = new Student("ZengQ", 18);
+        Student s3 = new Student("TwoBaby", 18);
+
+        // 2、创建TreeSet集合
+        TreeSet<Student> ts = new TreeSet<>();
+        ts.add(s1);
+        ts.add(s2);
+        ts.add(s3);
+
+        // 3、打印集合
+        System.out.println(ts);
+        // 不指定比较方法发会报错，因为这个数据类型是我们自定义的
+        // 我们没有给它一个默认的比较规则，它不知道怎么排序！
+        System.out.println("--------------------------------");
+
+
+    }
+}
