@@ -1,0 +1,64 @@
+package com.lkbhua.TreeSetDemo.demo2;
+
+import java.util.Objects;
+
+
+// 如果你需要使用一个带泛型的接口：
+// 方式一：直接指定泛型
+// 方式二：实现类也不确定，在创建Student对象的时候，实现类就可以把泛型延续下来
+//       在创建Student的类的时候确定泛型的类型
+// 很显然：这里我们确定了比较的就是Student类，直接用方式一指定泛型Student
+// 快捷键：IEDA直接快速重写抽象方法Alt + “回车”
+public class Student implements Comparable<Student>{
+    private String name;
+    private int age;
+
+    public Student() {
+    }
+
+    public Student(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Student student = (Student) o;
+        return age == student.age && Objects.equals(name, student.name);
+    }
+
+    @Override
+    public int compareTo(Student o) {
+        // 指定排序的方法
+        System.out.println("---------");
+        System.out.println("this:"+this);
+        System.out.println("o:"+o);
+        int result = this.getAge() - o.getAge();
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                '}';
+    }
+}
