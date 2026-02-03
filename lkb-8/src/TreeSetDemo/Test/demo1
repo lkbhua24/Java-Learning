@@ -1,0 +1,44 @@
+package com.lkbhua.TreeSetDemo.Test;
+
+import java.util.TreeSet;
+
+public class demo1 {
+    public static void main(String[] args) {
+        /* 需求：创建五个学生对象
+           属性：(姓名、年龄、语文成绩、数学、英语成绩)
+           按照总分从高到低排序到控制台
+           如果总分一样，按照语文排
+           如果语文一样，按照数学排
+           如果数学一样，按照英语排
+           如果英语一样，按照年龄排
+           如果英语一样，按照字母排
+         */
+
+        // 1、创建学生对象
+        Student2 s1 = new Student2("lkbhua", 20, 90, 98, 60);
+        Student2 s2 = new Student2("ZengQ", 19, 99, 80, 94);
+        Student2 s3 = new Student2("TwoBaby", 18, 99, 90, 90);
+        Student2 s4 = new Student2("JamesHarden", 20, 90, 98, 60);
+        Student2 s5 = new Student2("Kobe", 40, 99, 99, 99);
+
+        // 2、创建集合
+        // 默认一般是ArrasList的集合
+        // 如果你想要数据唯一HashSet
+        // 既要唯一又要排序 TreeSet
+        TreeSet<Student2> ts = new TreeSet<>();
+
+        // 3、添加元素
+        ts.add(s1);
+        ts.add(s2);
+        ts.add(s3);
+        ts.add(s4);
+        ts.add(s5);
+
+        // 4、打印集合
+        // System.out.println(ts);
+
+        for (Student2 s : ts) {
+            System.out.println(s.getName() + " " + s.getAge() + " " + s.getChinese() + " " + s.getMath() + " " + s.getEnglish());
+        }
+    }
+}
